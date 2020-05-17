@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  17 MAY 2020 18:35
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  17 MAY 2020 21:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1021,31 +1021,16 @@ LaTeX Warning: Label `fig:subfig2' multiply defined.
 LaTeX Warning: Label `sub@fig:subfig2' multiply defined.
 
 
-LaTeX Warning: Label `fig:subfig1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:subfig1' multiply defined.
-
-
 LaTeX Warning: Label `fig:subfig2' multiply defined.
 
 
 LaTeX Warning: Label `sub@fig:subfig2' multiply defined.
 
 
-LaTeX Warning: Label `sec:draw' multiply defined.
+LaTeX Warning: Label `fig:subfig2' multiply defined.
 
 
-LaTeX Warning: Label `sec:graphs' multiply defined.
-
-
-LaTeX Warning: Label `sec:onefig' multiply defined.
-
-
-LaTeX Warning: Label `fig:xfig1' multiply defined.
-
-
-LaTeX Warning: Label `sec:multifig' multiply defined.
+LaTeX Warning: Label `sub@fig:subfig2' multiply defined.
 
 
 LaTeX Warning: Label `fig:subfig1' multiply defined.
@@ -1058,18 +1043,6 @@ LaTeX Warning: Label `fig:subfig2' multiply defined.
 
 
 LaTeX Warning: Label `sub@fig:subfig2' multiply defined.
-
-
-LaTeX Warning: Label `fig:big1-subcaptionbox' multiply defined.
-
-
-LaTeX Warning: Label `fig:big1-subfigure' multiply defined.
-
-
-LaTeX Warning: Label `fig:parallel1' multiply defined.
-
-
-LaTeX Warning: Label `fig:parallel2' multiply defined.
 
 )
 \openout1 = `main.aux'.
@@ -1355,39 +1328,41 @@ File: figures/SPAN.pdf Graphic file (type pdf)
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [15] [16] [17]
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 9.0347pt on input line 207.
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 207.
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 207.
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 9.03276pt on input line 207.
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 207.
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 207.
-File: figures/thu-whole-logo.pdf Graphic file (type pdf)
-<use figures/thu-whole-logo.pdf>
- [18]
-File: figures/thu-fig-logo.pdf Graphic file (type pdf)
-<use figures/thu-fig-logo.pdf>
-File: figures/thu-text-logo.pdf Graphic file (type pdf)
-<use figures/thu-text-logo.pdf>
-File: figures/thu-fig-logo.pdf Graphic file (type pdf)
-<use figures/thu-fig-logo.pdf>
-File: figures/thu-text-logo.pdf Graphic file (type pdf)
-<use figures/thu-text-logo.pdf>
- [19]
-File: figures/thu-whole-logo.pdf Graphic file (type pdf)
-<use figures/thu-whole-logo.pdf>
-File: figures/thu-whole-logo.pdf Graphic file (type pdf)
-<use figures/thu-whole-logo.pdf>
-) (./data/chap03.tex [20]
+File: figures/resultSPAN.pdf Graphic file (type pdf)
+<use figures/resultSPAN.pdf>
+File: figures/resultPWF.pdf Graphic file (type pdf)
+<use figures/resultPWF.pdf>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 1400) in paragraph at lines 227--227
+[]|\TU/SimHei(0)/m/n/11.04124 总 检 测 数
+ []
+
+
+Underfull \hbox (badness 1400) in paragraph at lines 227--227
+[]|\TU/SimHei(0)/m/n/11.04124 正 确 检 测
+ []
+
+[18]) (./data/chap03.tex [19]
 第3章
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 9.0347pt on input line 31.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 6.00064pt on input line 31.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 31.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 9.03276pt on input line 31.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 31.
+LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 31.
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
-[21
+[20
 
 ]
 File: figures/thu-fig-logo.pdf Graphic file (type pdf)
@@ -1398,28 +1373,28 @@ File: figures/thu-fig-logo.pdf Graphic file (type pdf)
 <use figures/thu-fig-logo.pdf>
 File: figures/thu-text-logo.pdf Graphic file (type pdf)
 <use figures/thu-text-logo.pdf>
- [22]
+ [21]
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
-) [23] (./main.lof)
+) [22] (./main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [24
+ [23
 
 
 
 ] (./main.lot
 
-Package natbib Warning: Citation `tex' on page 25 undefined on input line 2.
+Package natbib Warning: Citation `tex' on page 24 undefined on input line 2.
 
 )
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [25
+ [24
 
 
 ] (./main.loe)
@@ -1428,17 +1403,17 @@ Package natbib Warning: Citation `tex' on page 25 undefined on input line 2.
 
 
 No file main.bbl.
-(./data/ack.tex [26
+(./data/ack.tex [25
 
 
-] [27]
+] [26]
 
-Package natbib Warning: Citation `thuthesis' on page 28 undefined on input line 11.
+Package natbib Warning: Citation `thuthesis' on page 27 undefined on input line 11.
 
-[28
+[27
 
 
-]) (./data/appendix01.tex [29
+]) (./data/appendix01.tex [28
 
 
 ]
@@ -1450,36 +1425,36 @@ Package hyperref Info: bookmark level for unknown mpdef defaults to 0 on input l
 \c@currmpdefopctr=\count398
 \c@endmpdefopctr=\count399
 Package hyperref Info: bookmark level for unknown mpdefop defaults to 0 on input line 49.
-[30
+[29
 
 ]
 Overfull \hbox (9.97899pt too wide) in paragraph at lines 100--112
  [][] 
  []
 
-[31]
+[30]
 File: figures/thu-lib-logo.pdf Graphic file (type pdf)
 <use figures/thu-lib-logo.pdf>
- [32]
+ [31]
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/sl' in size <12.045> not available
 (Font)              Font shape `TU/TimesNewRoman(0)/m/it' tried instead on input line 170.
- [33]
+ [32]
 附录 B
 
 Overfull \hbox (9.97899pt too wide) in paragraph at lines 209--221
  [][] 
  []
 
-[34
+[33
 
 ]
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
- [35]
+ [34]
 附录 C
-) (./data/resume.tex [36
+) (./data/resume.tex [35
 
-] [37
+] [36
 
 
 ])
@@ -1491,21 +1466,21 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
+ [37]
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
  [38]
 File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 1>
+<use figures/scan-record.pdf, page 2>
 File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 1>
+<use figures/scan-record.pdf, page 2>
 File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 1>
+<use figures/scan-record.pdf, page 2>
  [39]
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 2>
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 2>
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 2>
- [40]
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
@@ -1518,20 +1493,26 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
 (./main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 77.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9794BDDBC54FDD24E028EF5CA97145CE.
 
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: F7507F5E41C7A70B02F278A90A3526B6
+(rerunfilecheck)             After:  AE9599FFCC27DDD9942DA516DAA0E743.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 36683 strings out of 492922
- 733142 string characters out of 6136750
- 913170 words of memory out of 5000000
- 40091 multiletter control sequences out of 15000+600000
+ 36694 strings out of 492922
+ 733422 string characters out of 6136750
+ 913424 words of memory out of 5000000
+ 40100 multiletter control sequences out of 15000+600000
  543552 words of font info for 231 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  65i,21n,120p,2527b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (49 pages).
+Output written on main.pdf (48 pages).
