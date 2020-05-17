@@ -13,7 +13,9 @@
 \contentsline {section}{\numberline {2.2}海杂波统计特性}{13}{section.2.2}% 
 \contentsline {section}{\numberline {2.3}极化白化滤波器}{14}{section.2.3}% 
 \contentsline {section}{\numberline {2.4}自适应PWF舰船检测算法}{15}{section.2.4}% 
-\contentsline {section}{\numberline {2.5}GPU算法优化与多GPU实现}{17}{section.2.5}% 
+\contentsline {section}{\numberline {2.5}基于GPU的PWF算法实现}{17}{section.2.5}% 
+\contentsline {subsection}{\numberline {2.5.1}GPU算法设计与优化}{17}{subsection.2.5.1}% 
+\contentsline {subsection}{\numberline {2.5.2}多GPU协同}{18}{subsection.2.5.2}% 
 \contentsline {section}{\numberline {2.6}实验结果与加速比测试}{18}{section.2.6}% 
 \contentsline {section}{\numberline {2.7}小结}{20}{section.2.7}% 
 \contentsline {chapter}{\numberline {第3章}基于混合对数正太模型SAR图像目标检测}{21}{chapter.3}% 

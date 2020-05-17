@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  18 MAY 2020 00:28
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  18 MAY 2020 00:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1336,12 +1336,12 @@ File: figures/resultSPAN.pdf Graphic file (type pdf)
 File: figures/resultPWF.pdf Graphic file (type pdf)
 <use figures/resultPWF.pdf>
 
-Underfull \hbox (badness 1400) in paragraph at lines 234--234
+Underfull \hbox (badness 1400) in paragraph at lines 237--237
 []|\TU/SimHei(0)/m/n/11.04124 总 检 测 数
  []
 
 
-Underfull \hbox (badness 1400) in paragraph at lines 234--234
+Underfull \hbox (badness 1400) in paragraph at lines 237--237
 []|\TU/SimHei(0)/m/n/11.04124 正 确 检 测
  []
 
@@ -1505,8 +1505,8 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: FCAA8D1E016699A0089D73D7B77BCDDC
-(rerunfilecheck)             After:  24E14B22BE067C4760A546989F3F3F6F.
+(rerunfilecheck)             Before: 90AB32FC6C18017261E6EB107878B1B0
+(rerunfilecheck)             After:  4A2AD5031270F6C4CD5A9AC8F429F261.
 
 LaTeX Warning: There were undefined references.
 
@@ -1515,10 +1515,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 36707 strings out of 492922
- 733661 string characters out of 6136750
- 913714 words of memory out of 5000000
- 40110 multiletter control sequences out of 15000+600000
+ 36708 strings out of 492922
+ 733674 string characters out of 6136750
+ 913717 words of memory out of 5000000
+ 40111 multiletter control sequences out of 15000+600000
  543552 words of font info for 231 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  65i,21n,120p,2527b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
