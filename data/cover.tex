@@ -58,18 +58,17 @@
 % 定义中英文摘要和关键字
 \begin{cabstract}
   合成孔径雷达(SAR)系统提供了一种全天候的遥感手段，可以在雷达波束照射下生成高分辨率的地物图像，
-  目前已被广泛应用于海上目标检测与分类。为满足SAR图像舰船目标检测高时效性的要求，本文提出了基于
-  CPU+GPU异构架构的SAR图像舰船目标检测方案。本文共实现了四种基于CPU+GPU异构架构的高效目标检测
+  目前已被广泛应用于海上目标检测与分类。为满足SAR图像舰船目标检测高时效性的要求，本文共实现了四种基于CPU+GPU异构架构的高效目标检测
   方法，总结如下：
 
-  1)对于SAR图像，采用了对数混合高斯模型来描述幅值SAR图像中的非负海杂波分布，并采用最大期望(EM)方法
-  来有效估计海杂波分布参数，根据事先给定的虚警率采用牛顿迭代法得到CAFR检测阈值。该方法在NVIDIA TITAN
-  V GPU上的实验结果表明，相比于传统CPU平台，该方法在检测效率上获得了数十倍的提升。
-
-  2)对于极化SAR图像，以极化白化滤波器(PWF)方法为例，实现了多GPU协同并行极化白化滤波器算法，该方法
+  1)对于极化SAR图像，以极化白化滤波器(PWF)方法为例，实现了多GPU协同并行极化白化滤波器算法，该方法
   估计局部海杂波的协方差矩阵，并用其融合各个极化通道散射信息，得到一副相干斑抑制图像，对重构图像应用
   CFAR检测器得到最终检测结果。实验结果表明，该方法有效，并在检测时间上获得了显著的提升，明显优于传统的
   CPU平台。
+
+  2)对于SAR图像，采用了对数混合高斯模型来描述幅值SAR图像中的非负海杂波分布，并采用最大期望(EM)方法
+  来有效估计海杂波分布参数，根据事先给定的虚警率采用牛顿迭代法得到CAFR检测阈值。该方法在NVIDIA TITAN
+  V GPU上的实验结果表明，相比于传统CPU平台，该方法在检测效率上获得了数十倍的提升
 
   3)实现了基于GPU的反射对称性极化SAR图像舰船目标检测方法，该方法利用了海洋和人造金属物体反射对称性的差异，
   对散射矩阵中的HH通道与HV通道的相关性进行度量，构造了反射对称检测量。该检测量符合K分布，采用矩估计的方法
@@ -94,21 +93,21 @@
   detection.In this paper, four kinds of efficient target detection based on CPU+GPU heterogeneous
   architecture are realized, these are summarized as follows:
 
-  1)For SAR images, the log-mixture gaussian model is used to describe the non-negative 
-  sea clutter distribution in amplitude SAR images, and the maximum expectation (EM) 
-  method is used to effectively estimate the sea clutter distribution parameters. 
-  According to the given false alarm rate in advance, the CAFR detection threshold is 
-  obtained by Newton iteration method.The experimental results of this method on NVIDIA
-  TITAN V GPU show that compared with the traditional CPU platform, the detection
-  efficiency of this method is improved by dozens of times.
-
-  2)For polarization SAR images, with polarization whitening filter (PWF) method as an example,
+  1)For polarization SAR images, with polarization whitening filter (PWF) method as an example,
   this paper implements the GPU collaborative parallel polarization filter algorithm, the method 
   estimates the local sea clutter covariance matrix and combine the polarization scattering channel information to 
   get a pair of coherent spot suppression images. For the reconstruct image, CFAR detector was applied to get the 
   final detection results.The experimental results show that the method is effective and the detection 
   time is improved significantly, which is better than the traditional method
   CPU platform.
+
+  2)For SAR images, the log-mixture gaussian model is used to describe the non-negative 
+  sea clutter distribution in amplitude SAR images, and the maximum expectation (EM) 
+  method is used to effectively estimate the sea clutter distribution parameters. 
+  According to the given false alarm rate in advance, the CAFR detection threshold is 
+  obtained by Newton iteration method.The experimental results of this method on NVIDIA
+  TITAN V GPU show that compared with the traditional CPU platform, the detection
+  efficiency of this method is improved by dozens of times
 
   3)A ship detection method using reflection-symmetric polarization features based on GPU 
   is implemented. This method uses the difference in reflection symmetry between ocean and 

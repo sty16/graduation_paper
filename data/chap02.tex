@@ -181,6 +181,13 @@
  加快内存访问的速度，提升总线利用效率。因此在算法设计过程中，将全局数据复制到线程私有空间采用行访问的形式可以保证
  线程束中线程访问的地址空间位于128字节段范围内。
 
+  \begin{figure}[H] % use float package if you want it here
+    \centering
+    \includegraphics[width=0.8\textwidth]{kernel.jpg}
+    \caption{CUDA执行流程}
+    \label{fig:chap3:kernel}
+  \end{figure}
+
  核函数的设计，在GPU上所有的线程按照单指令多线程的方式去执行。不同的线程在私有数据空间上去执行相同的指令。对于APWF
  方法，核函数数的主要任务是计算极化白化滤波器参数即海杂波散射矢量的协方差矩阵，协方差矩阵计算主要涉及一个$3xN$与一个$Nx3$
  的矩阵相乘，对于该矩阵乘法，采用了动态并行的方式进行了进一步的优化，从当前核函数中创建新的核函数来完并行完成矩阵乘法运算。

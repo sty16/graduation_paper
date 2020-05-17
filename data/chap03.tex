@@ -1,19 +1,78 @@
-\chapter{中华人民共和国}
+\chapter{基于混合对数正太模型SAR图像目标检测}
 \label{cha:china}
 
-\section{其它例子}
-\label{sec:other}
+\section{引言}
+\label{sec:chap2:sec1}
+在使用恒虚警率的SAR图像目标检测方法中，对海杂波的精准建模是其中至关重要的问题。目前可以有效
+对海杂波建模的分布模型有锐利分布，K分布，威布尔分布，对数高斯分布等。在本章中我采用混合对数正太
+模型对强度SAR图像中的海杂波进行建模，实质上对数混合正太模型(lognormal mixture model)等价于强度SAR图像在对数域上的混合
+高斯模型，因此可以采用EM方法估计分布参数，得到海杂波概率密度分布后应用牛顿迭代法计算分割阈值输出
+检测的结果图像
 
-在第~\ref{cha:intro} 章中我们学习了贝叶斯公式~(\ref{equ:chap1:bayes})，这里我们复
-习一下：
-\begin{equation}
-\label{equ:chap2:bayes}
-p(y|\vec{x}) = \frac{p(\vec{x},y)}{p(\vec{x})}=
-\frac{p(\vec{x}|y)p(y)}{p(\vec{x})}
-\end{equation}
+
+\section{对数混合正太模型}
+\label{sec:chap2:sec2}
+  定义强度SAR图像中的像素值$\bf{x}$为一随机变量，当其满足式\ref{equ:chap2:LMM}中的分布时，我们称随机变量$\bf{x}$
+  服从包含K个成分的混合对数正太分布。
+
+    \begin{equation}
+      \label{equ:chap2:LMM}
+      {f_x}(x) = \mathop \Sigma \limits_{i = 1}^K {\alpha _i} \cdot \frac{1}{{\sqrt {2\pi } {\sigma _i}x}}\exp ( - \frac{{{{(\ln x - {\mu _i})}^2}}}{{2{\sigma ^2}}}),x > 0
+    \end{equation}
+  在式\ref{equ:chap2:LMM}中，$\alpha_i$, $\mu_i$, $\sigma_i(i=1,2,...,K)$为混合对数正太分布参数
+  其中$\alpha_i$权重系数满足式\ref{equ:chap2:weigth}所示关系。混合对数正太分布为K个对数正太分布
+  加权求和。$\mu_i$,$\sigma_i$为各独立的对数正太分布参数。
+
+    \begin{equation}
+      \label{equ:chap2:weigth}
+      \sum\limits_{i = 1}^K {{\alpha _i} = 1,{\alpha _i} \ge 0} 
+    \end{equation}
+
+  对随机变量$\bf{x}$做形式变换，另$Y=\bf{x}$，我们可以推导出对于随机变量$Y$，其满足的概率密度函数如式\ref{equ:chap2:GMM}所示,显然
+  随机变量$Y$满足含有K个分量的混合高斯分布，等价来讲对于强度SAR图像采用混合对数正太模型对海杂波进行建模
+  等价于在SAR图像对数强度域上应用混合高斯模型，因此在该建模方法中，首先对强度SAR图像取对数变换到对数域，然后应用混合高斯
+  模型描述海杂波的分布。
+
+    \begin{equation}
+      \label{equ:chap2:GMM}
+        {f_Y}(y) = \mathop \Sigma \limits_{i = 1}^K {\alpha _i} \cdot \frac{1}{{\sqrt {2\pi } {\sigma _i}}}\exp ( - \frac{{{{(y - {\mu _i})}^2}}}{{2{\sigma ^2}}})
+    \end{equation}
+
+
+  \section{海杂波分布参数估计}
+
+      在\ref{sec:chap2:sec2}节表明，混合对数正太分布在强度域与混合高斯分布在对数域上等价，因此混合正太
+      分布中的参数计算可以采用目前现有的混合高斯模型参数计算方法。在文献[4]中表明了对于混合高斯模型，最大期望算法
+      是一种高效的估计混合高斯分布参数的方法。因此在参数估计中，应用EM算法计算海杂波分布参数。参数迭代更新如式\ref{equ:chap2:paramupdate}
+      所示。在该式中$\phi (y|{\mu _k},{\sigma _k})$为均值为$\mu_k$,标准差为$\sigma_k$的高斯分布，$n$为参与估计的杂波像素数量，
+      $y$为取对数后的图像强度值。      
+
+    \begin{equation}
+      \label{equ:chap2:paramupdate}
+      \begin{array}{*{20}{c}}
+        {{\mu _k}^{i + 1} = \frac{{\sum\limits_{j = 1}^n {{\gamma _{jk}}{y_j}} }}{{\sum\limits_j^n {{\gamma _{jk}}} }}}\\
+        {{\sigma _k}^{{\rm{i}} + 1} = \sqrt {\frac{{\sum\limits_{j = 1}^n {{\gamma _{jk}}({y_j} - {\mu _k}^{i + 1})} }}{{\sum\limits_j^n {{\gamma _{jk}}} }}} }\\
+        {{\alpha _k}^{i + 1} = \frac{{\sum\limits_j^n {{\gamma _{jk}}} }}{n}}\\
+        {{\gamma _{jk}} = \frac{{{\alpha _k}^i\phi ({y_j}|u_k^i,\sigma _k^i)}}{{\sum\limits_{k = 1}^K {{\alpha _k}^i\phi ({y_j}|u_k^i,\sigma _k^i)} }}}
+      \end{array}
+    \end{equation}
+
+    受自然条件风速、风向的影响，同一SAR图像不同区域的杂波分布不尽相同，因此采用图\ref{fig:chap2:slide}所示的
+    滑动窗进行局部杂波像素的选取，该滑动窗分为三个区域分别为检测像素区域，保护区域，杂波区域。合适大小的保护区域可以减少
+    舰船目标像素对杂波统计分布参数估计的干扰。选定杂波像素值后，将其代入到式\ref{equ:chap2:paramupdate}中进行
+    海杂波分布参数的迭代估计。
+
+    \begin{figure}[H] % use float package if you want it here
+      \centering
+      \includegraphics[width=0.5\textwidth]{slide.png}
+      \caption{采用滑动窗进行自适应杂波参数估计，阴影所示像素用于杂波估计}
+      \label{fig:chap2:slide}
+    \end{figure}   
+\section{应用LMM模型进行CFAR舰船检测}
 
 \subsection{绘图}
 \label{sec:draw}
+
 
 本模板不再预先装载任何绘图包（如 \pkg{pstricks，pgf} 等），完全由用户来决定。
 个人觉得 \pkg{pgf} 不错，不依赖于 Postscript。此外还有很多针对 \LaTeX{} 的
@@ -31,12 +90,7 @@ jPicEdt, jaxdraw 等等。
 件中的位置对应\footnote{This is not a bug, but a feature of \LaTeX!}，这也是刚使
 用 \LaTeX{} 同学可能遇到的问题。如果要强制固定浮动图形的位置，请使用 \pkg{float} 宏包，
 它提供了 \texttt{[H]} 参数，比如图~\ref{fig:xfig1}。
-\begin{figure}[H] % use float package if you want it here
-  \centering
-  \includegraphics{thu-whole-logo.pdf}
-  \caption{利用 Xfig 制图}
-  \label{fig:xfig1}
-\end{figure}
+
 
 大学之道，在明明德，在亲民，在止于至善。知止而后有定；定而后能静；静而后能安；安
 而后能虑；虑而后能得。物有本末，事有终始。知所先后，则近道矣。古之欲明明德于天

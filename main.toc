@@ -15,27 +15,30 @@
 \contentsline {section}{\numberline {2.4}自适应PWF舰船检测算法}{15}{section.2.4}% 
 \contentsline {section}{\numberline {2.5}GPU算法优化与多GPU实现}{17}{section.2.5}% 
 \contentsline {section}{\numberline {2.6}实验结果与加速比测试}{18}{section.2.6}% 
-\contentsline {section}{\numberline {2.7}小结}{19}{section.2.7}% 
-\contentsline {chapter}{\numberline {第3章}中华人民共和国}{20}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}其它例子}{20}{section.3.1}% 
-\contentsline {subsection}{\numberline {3.1.1}绘图}{20}{subsection.3.1.1}% 
-\contentsline {subsection}{\numberline {3.1.2}插图}{20}{subsection.3.1.2}% 
-\contentsline {subsubsection}{\numberline {3.1.2.1}一个图形}{20}{subsubsection.3.1.2.1}% 
-\contentsline {subsubsection}{\numberline {3.1.2.2}多个图形}{21}{subsubsection.3.1.2.2}% 
-\contentsline {chapter}{插图索引}{23}{section*.26}% 
-\contentsline {chapter}{表格索引}{24}{section*.28}% 
-\contentsline {chapter}{公式索引}{25}{section*.30}% 
-\contentsline {chapter}{致\hspace {\ccwd }谢}{27}{section*.32}% 
-\contentsline {chapter}{声\hspace {\ccwd }明}{28}{section*.34}% 
-\contentsline {chapter}{\numberline {附录 A}外文资料原文}{29}{appendix.A}% 
-\contentsline {section}{\numberline {A.1}Single-Objective Programming}{29}{section.A.1}% 
-\contentsline {subsection}{\numberline {A.1.1}Linear Programming}{30}{subsection.A.1.1}% 
-\contentsline {subsection}{\numberline {A.1.2}Nonlinear Programming}{31}{subsection.A.1.2}% 
-\contentsline {subsection}{\numberline {A.1.3}Integer Programming}{32}{subsection.A.1.3}% 
-\contentsline {chapter}{\numberline {附录 B}外文资料的调研阅读报告或书面翻译}{33}{appendix.B}% 
-\contentsline {section}{\numberline {B.1}单目标规划}{33}{section.B.1}% 
-\contentsline {subsection}{\numberline {B.1.1}线性规划}{33}{subsection.B.1.1}% 
-\contentsline {subsection}{\numberline {B.1.2}非线性规划}{34}{subsection.B.1.2}% 
-\contentsline {subsection}{\numberline {B.1.3}整数规划}{34}{subsection.B.1.3}% 
-\contentsline {chapter}{\numberline {附录 C}其它附录}{35}{appendix.C}% 
-\contentsline {chapter}{在学期间参加课题的研究成果}{36}{section*.42}% 
+\contentsline {section}{\numberline {2.7}小结}{20}{section.2.7}% 
+\contentsline {chapter}{\numberline {第3章}基于混合对数正太模型SAR图像目标检测}{21}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}引言}{21}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}对数混合正太模型}{21}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}海杂波分布参数估计}{22}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}应用LMM模型进行CFAR舰船检测}{23}{section.3.4}% 
+\contentsline {subsection}{\numberline {3.4.1}绘图}{23}{subsection.3.4.1}% 
+\contentsline {subsection}{\numberline {3.4.2}插图}{23}{subsection.3.4.2}% 
+\contentsline {subsubsection}{\numberline {3.4.2.1}一个图形}{23}{subsubsection.3.4.2.1}% 
+\contentsline {subsubsection}{\numberline {3.4.2.2}多个图形}{24}{subsubsection.3.4.2.2}% 
+\contentsline {chapter}{插图索引}{26}{section*.27}% 
+\contentsline {chapter}{表格索引}{27}{section*.29}% 
+\contentsline {chapter}{公式索引}{28}{section*.31}% 
+\contentsline {chapter}{致\hspace {\ccwd }谢}{30}{section*.33}% 
+\contentsline {chapter}{声\hspace {\ccwd }明}{31}{section*.35}% 
+\contentsline {chapter}{\numberline {附录 A}外文资料原文}{32}{appendix.A}% 
+\contentsline {section}{\numberline {A.1}Single-Objective Programming}{32}{section.A.1}% 
+\contentsline {subsection}{\numberline {A.1.1}Linear Programming}{33}{subsection.A.1.1}% 
+\contentsline {subsection}{\numberline {A.1.2}Nonlinear Programming}{34}{subsection.A.1.2}% 
+\contentsline {subsection}{\numberline {A.1.3}Integer Programming}{35}{subsection.A.1.3}% 
+\contentsline {chapter}{\numberline {附录 B}外文资料的调研阅读报告或书面翻译}{36}{appendix.B}% 
+\contentsline {section}{\numberline {B.1}单目标规划}{36}{section.B.1}% 
+\contentsline {subsection}{\numberline {B.1.1}线性规划}{36}{subsection.B.1.1}% 
+\contentsline {subsection}{\numberline {B.1.2}非线性规划}{37}{subsection.B.1.2}% 
+\contentsline {subsection}{\numberline {B.1.3}整数规划}{37}{subsection.B.1.3}% 
+\contentsline {chapter}{\numberline {附录 C}其它附录}{38}{appendix.C}% 
+\contentsline {chapter}{在学期间参加课题的研究成果}{39}{section*.43}% 
