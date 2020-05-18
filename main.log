@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  18 MAY 2020 00:38
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  19 MAY 2020 00:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1033,16 +1033,43 @@ LaTeX Warning: Label `fig:subfig2' multiply defined.
 LaTeX Warning: Label `sub@fig:subfig2' multiply defined.
 
 
-LaTeX Warning: Label `fig:subfig1' multiply defined.
+LaTeX Warning: Label `fig:chap2:slide' multiply defined.
 
 
-LaTeX Warning: Label `sub@fig:subfig1' multiply defined.
+LaTeX Warning: Label `fig:chap2:slide' multiply defined.
 
 
-LaTeX Warning: Label `fig:subfig2' multiply defined.
+LaTeX Warning: Label `tab:chap3:timeresult' multiply defined.
 
 
-LaTeX Warning: Label `sub@fig:subfig2' multiply defined.
+LaTeX Warning: Label `equ:chap2:paramupdate' multiply defined.
+
+
+LaTeX Warning: Label `equ:chap2:detecthres' multiply defined.
+
+
+LaTeX Warning: Label `equ:chap2:newtonupdate' multiply defined.
+
+
+LaTeX Warning: Label `alg:chap2:LMM' multiply defined.
+
+
+LaTeX Warning: Label `equ:chap2:erf' multiply defined.
+
+
+LaTeX Warning: Label `fig:chap2:slide' multiply defined.
+
+
+LaTeX Warning: Label `fig:chap2:slide' multiply defined.
+
+
+LaTeX Warning: Label `tab:chap3:timeresult' multiply defined.
+
+
+LaTeX Warning: Label `fig:chap2:source' multiply defined.
+
+
+LaTeX Warning: Label `fig:chap2:detectresult' multiply defined.
 
 )
 \openout1 = `main.aux'.
@@ -1203,7 +1230,11 @@ Package natbib Warning: Citation `tex' on page 3 undefined on input line 108.
 
 Package natbib Warning: Citation `tex' on page 3 undefined on input line 108.
 
-[3] [4]
+[3]
+
+LaTeX Warning: Reference `sec:multifig' on page 4 undefined on input line 146.
+
+[4]
 Overfull \hbox (4.45836pt too wide) in paragraph at lines 215--227
  [][] 
  []
@@ -1352,57 +1383,92 @@ Underfull \hbox (badness 1400) in paragraph at lines 237--237
 ]
 File: figures/slide.png Graphic file (type bmp)
 <figures/slide.png>
- [22]
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 9.0347pt on input line 90.
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 90.
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 90.
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 9.03276pt on input line 90.
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 90.
-LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 90.
+ [22] [23] [24]
+File: figures/memory.png Graphic file (type bmp)
+<figures/memory.png>
+ [25]
+File: figures/map.jpg Graphic file (type bmp)
+<figures/map.jpg>
+File: figures/HongKong1.png Graphic file (type bmp)
+<figures/HongKong1.png>
+File: figures/HongKong2.png Graphic file (type bmp)
+<figures/HongKong2.png>
+File: figures/HongKong3.png Graphic file (type bmp)
+<figures/HongKong3.png>
+File: figures/HongKong4.png Graphic file (type bmp)
+<figures/HongKong4.png>
+ [26]
+File: figures/HongKong1r.jpg Graphic file (type bmp)
+<figures/HongKong1r.jpg>
+File: figures/HongKong2r.jpg Graphic file (type bmp)
+<figures/HongKong2r.jpg>
+File: figures/HongKong3r.jpg Graphic file (type bmp)
+<figures/HongKong3r.jpg>
+File: figures/HongKong4r.jpg Graphic file (type bmp)
+<figures/HongKong4r.jpg>
+ [27]) (./data/chap04.tex [28]
+第4章
+[29
+
+] [30]
+File: figures/PCDMCal.png Graphic file (type bmp)
+<figures/PCDMCal.png>
 
 
-LaTeX Warning: Reference `fig:xfig1' on page 23 undefined on input line 92.
+LaTeX Warning: Reference `' on page 31 undefined on input line 103.
 
-[23]
-File: figures/thu-fig-logo.pdf Graphic file (type pdf)
-<use figures/thu-fig-logo.pdf>
-File: figures/thu-text-logo.pdf Graphic file (type pdf)
-<use figures/thu-text-logo.pdf>
-File: figures/thu-fig-logo.pdf Graphic file (type pdf)
-<use figures/thu-fig-logo.pdf>
-File: figures/thu-text-logo.pdf Graphic file (type pdf)
-<use figures/thu-text-logo.pdf>
- [24]
-File: figures/thu-whole-logo.pdf Graphic file (type pdf)
-<use figures/thu-whole-logo.pdf>
-File: figures/thu-whole-logo.pdf Graphic file (type pdf)
-<use figures/thu-whole-logo.pdf>
-) [25] (./main.lof)
+[31]
+File: figures/PCDMalg.png Graphic file (type bmp)
+<figures/PCDMalg.png>
+ [32] [33] [34] [35] [36]
+File: figures/memory.png Graphic file (type bmp)
+<figures/memory.png>
+ [37]
+File: figures/map.jpg Graphic file (type bmp)
+<figures/map.jpg>
+File: figures/HongKong1.png Graphic file (type bmp)
+<figures/HongKong1.png>
+File: figures/HongKong2.png Graphic file (type bmp)
+<figures/HongKong2.png>
+File: figures/HongKong3.png Graphic file (type bmp)
+<figures/HongKong3.png>
+File: figures/HongKong4.png Graphic file (type bmp)
+<figures/HongKong4.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: figures/HongKong1r.jpg Graphic file (type bmp)
+<figures/HongKong1r.jpg>
+File: figures/HongKong2r.jpg Graphic file (type bmp)
+<figures/HongKong2r.jpg>
+File: figures/HongKong3r.jpg Graphic file (type bmp)
+<figures/HongKong3r.jpg>
+File: figures/HongKong4r.jpg Graphic file (type bmp)
+<figures/HongKong4r.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[38]) [39] [40] (./main.lof)
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [26
+ [41
 
 
 
 ] (./main.lot
 
-Package natbib Warning: Citation `tex' on page 27 undefined on input line 2.
+Package natbib Warning: Citation `tex' on page 42 undefined on input line 2.
 
 )
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [27
+ [42
 
 
-] (./main.loe [28
+] (./main.loe [43
 
 
 ])
@@ -1411,14 +1477,14 @@ Package natbib Warning: Citation `tex' on page 27 undefined on input line 2.
 
 
 No file main.bbl.
-(./data/ack.tex [29]
+(./data/ack.tex [44]
 
-Package natbib Warning: Citation `thuthesis' on page 30 undefined on input line 11.
+Package natbib Warning: Citation `thuthesis' on page 45 undefined on input line 11.
 
-[30
+[45
 
 
-]) (./data/appendix01.tex [31
+]) (./data/appendix01.tex [46
 
 
 ]
@@ -1430,36 +1496,36 @@ Package hyperref Info: bookmark level for unknown mpdef defaults to 0 on input l
 \c@currmpdefopctr=\count398
 \c@endmpdefopctr=\count399
 Package hyperref Info: bookmark level for unknown mpdefop defaults to 0 on input line 49.
-[32
+[47
 
 ]
 Overfull \hbox (9.97899pt too wide) in paragraph at lines 100--112
  [][] 
  []
 
-[33]
+[48]
 File: figures/thu-lib-logo.pdf Graphic file (type pdf)
 <use figures/thu-lib-logo.pdf>
- [34]
+ [49]
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/sl' in size <12.045> not available
 (Font)              Font shape `TU/TimesNewRoman(0)/m/it' tried instead on input line 170.
- [35]
+ [50]
 附录 B
 
 Overfull \hbox (9.97899pt too wide) in paragraph at lines 209--221
  [][] 
  []
 
-[36
+[51
 
 ]
 File: figures/thu-whole-logo.pdf Graphic file (type pdf)
 <use figures/thu-whole-logo.pdf>
- [37]
+ [52]
 附录 C
-) (./data/resume.tex [38
+) (./data/resume.tex [53
 
-] [39
+] [54
 
 
 ])
@@ -1471,21 +1537,21 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
- [40]
+ [55]
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 1>
- [41]
+ [56]
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
 File: figures/scan-record.pdf Graphic file (type pdf)
 <use figures/scan-record.pdf, page 2>
- [42]
+ [57]
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
@@ -1493,20 +1559,14 @@ File: figures/scan-record.pdf Graphic file (type pdf)
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 78.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 78.
 (./main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 77.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 78.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 78.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 2165D1D65407B1BD34A33F1FECB071AF.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 90AB32FC6C18017261E6EB107878B1B0
-(rerunfilecheck)             After:  4A2AD5031270F6C4CD5A9AC8F429F261.
 
 LaTeX Warning: There were undefined references.
 
@@ -1515,12 +1575,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 36708 strings out of 492922
- 733674 string characters out of 6136750
- 913717 words of memory out of 5000000
- 40111 multiletter control sequences out of 15000+600000
- 543552 words of font info for 231 fonts, out of 8000000 for 9000
+ 36714 strings out of 492922
+ 732188 string characters out of 6136750
+ 914473 words of memory out of 5000000
+ 40122 multiletter control sequences out of 15000+600000
+ 542003 words of font info for 210 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  65i,21n,120p,2527b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (51 pages).
+Output written on main.pdf (66 pages).

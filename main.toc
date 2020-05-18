@@ -23,24 +23,34 @@
 \contentsline {section}{\numberline {3.2}对数混合正太模型}{21}{section.3.2}% 
 \contentsline {section}{\numberline {3.3}海杂波分布参数估计}{22}{section.3.3}% 
 \contentsline {section}{\numberline {3.4}应用LMM模型进行CFAR舰船检测}{23}{section.3.4}% 
-\contentsline {subsection}{\numberline {3.4.1}绘图}{23}{subsection.3.4.1}% 
-\contentsline {subsection}{\numberline {3.4.2}插图}{23}{subsection.3.4.2}% 
-\contentsline {subsubsection}{\numberline {3.4.2.1}一个图形}{23}{subsubsection.3.4.2.1}% 
-\contentsline {subsubsection}{\numberline {3.4.2.2}多个图形}{24}{subsubsection.3.4.2.2}% 
-\contentsline {chapter}{插图索引}{26}{section*.27}% 
-\contentsline {chapter}{表格索引}{27}{section*.29}% 
-\contentsline {chapter}{公式索引}{28}{section*.31}% 
-\contentsline {chapter}{致\hspace {\ccwd }谢}{30}{section*.33}% 
-\contentsline {chapter}{声\hspace {\ccwd }明}{31}{section*.35}% 
-\contentsline {chapter}{\numberline {附录 A}外文资料原文}{32}{appendix.A}% 
-\contentsline {section}{\numberline {A.1}Single-Objective Programming}{32}{section.A.1}% 
-\contentsline {subsection}{\numberline {A.1.1}Linear Programming}{33}{subsection.A.1.1}% 
-\contentsline {subsection}{\numberline {A.1.2}Nonlinear Programming}{34}{subsection.A.1.2}% 
-\contentsline {subsection}{\numberline {A.1.3}Integer Programming}{35}{subsection.A.1.3}% 
-\contentsline {chapter}{\numberline {附录 B}外文资料的调研阅读报告或书面翻译}{36}{appendix.B}% 
-\contentsline {section}{\numberline {B.1}单目标规划}{36}{section.B.1}% 
-\contentsline {subsection}{\numberline {B.1.1}线性规划}{36}{subsection.B.1.1}% 
-\contentsline {subsection}{\numberline {B.1.2}非线性规划}{37}{subsection.B.1.2}% 
-\contentsline {subsection}{\numberline {B.1.3}整数规划}{37}{subsection.B.1.3}% 
-\contentsline {chapter}{\numberline {附录 C}其它附录}{38}{appendix.C}% 
-\contentsline {chapter}{在学期间参加课题的研究成果}{39}{section*.43}% 
+\contentsline {section}{\numberline {3.5}GPU算法优化}{24}{section.3.5}% 
+\contentsline {section}{\numberline {3.6}LMM实验结果}{26}{section.3.6}% 
+\contentsline {section}{\numberline {3.7}小结}{28}{section.3.7}% 
+\contentsline {chapter}{\numberline {第4章}基于PCDM的极化SAR图像舰船目标检测}{29}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}引言}{29}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}PCDM理论背景}{29}{section.4.2}% 
+\contentsline {subsection}{\numberline {4.2.1}极化SAR散射表征与SPAN理论}{29}{subsection.4.2.1}% 
+\contentsline {subsection}{\numberline {4.2.2}极化协方差差异矩阵}{30}{subsection.4.2.2}% 
+\contentsline {section}{\numberline {4.3}基于PCDM的舰船目标检测算法}{31}{section.4.3}% 
+\contentsline {section}{\numberline {4.4}基于GPU的PCDM算法设计}{33}{section.4.4}% 
+\contentsline {section}{\numberline {4.5}应用LMM模型进行CFAR舰船检测}{35}{section.4.5}% 
+\contentsline {section}{\numberline {4.6}GPU算法优化}{36}{section.4.6}% 
+\contentsline {section}{\numberline {4.7}LMM实验结果}{38}{section.4.7}% 
+\contentsline {section}{\numberline {4.8}小结}{39}{section.4.8}% 
+\contentsline {chapter}{插图索引}{41}{section*.40}% 
+\contentsline {chapter}{表格索引}{42}{section*.42}% 
+\contentsline {chapter}{公式索引}{43}{section*.44}% 
+\contentsline {chapter}{致\hspace {\ccwd }谢}{45}{section*.46}% 
+\contentsline {chapter}{声\hspace {\ccwd }明}{46}{section*.48}% 
+\contentsline {chapter}{\numberline {附录 A}外文资料原文}{47}{appendix.A}% 
+\contentsline {section}{\numberline {A.1}Single-Objective Programming}{47}{section.A.1}% 
+\contentsline {subsection}{\numberline {A.1.1}Linear Programming}{48}{subsection.A.1.1}% 
+\contentsline {subsection}{\numberline {A.1.2}Nonlinear Programming}{49}{subsection.A.1.2}% 
+\contentsline {subsection}{\numberline {A.1.3}Integer Programming}{50}{subsection.A.1.3}% 
+\contentsline {chapter}{\numberline {附录 B}外文资料的调研阅读报告或书面翻译}{51}{appendix.B}% 
+\contentsline {section}{\numberline {B.1}单目标规划}{51}{section.B.1}% 
+\contentsline {subsection}{\numberline {B.1.1}线性规划}{51}{subsection.B.1.1}% 
+\contentsline {subsection}{\numberline {B.1.2}非线性规划}{52}{subsection.B.1.2}% 
+\contentsline {subsection}{\numberline {B.1.3}整数规划}{52}{subsection.B.1.3}% 
+\contentsline {chapter}{\numberline {附录 C}其它附录}{53}{appendix.C}% 
+\contentsline {chapter}{在学期间参加课题的研究成果}{54}{section*.56}% 

@@ -2,7 +2,13 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces CUDA执行流程\relax }}{18}{figure.caption.19}% 
 \contentsline {figure}{\numberline {2.3}{\ignorespaces PWF图像检测结果\relax }}{19}{figure.caption.20}% 
 \contentsline {figure}{\numberline {3.1}{\ignorespaces 采用滑动窗进行自适应杂波参数估计，阴影所示像素用于杂波估计\relax }}{23}{figure.caption.23}% 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces 包含子图形的大图形(subcaptionbox示例)\relax }}{24}{figure.caption.24}% 
-\contentsline {figure}{\numberline {3.3}{\ignorespaces 包含子图形的大图形(subfigure示例)\relax }}{24}{figure.caption.25}% 
-\contentsline {figure}{\numberline {3.4}{\ignorespaces 并排第一个图\relax }}{25}{figure.caption.26}% 
-\contentsline {figure}{\numberline {3.5}{\ignorespaces 并排第二个图\relax }}{25}{figure.caption.26}% 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces CUDA内存模型\relax }}{25}{figure.caption.25}% 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces CUDA线程与检测像素映射关系\relax }}{26}{figure.caption.26}% 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces 四张SIR-C/XSAR强度图像\relax }}{26}{figure.caption.27}% 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces LMM检测结果\relax }}{27}{figure.caption.28}% 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces PCDM矩阵计算示意图\relax }}{31}{figure.caption.30}% 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces PCDM检测流程示意图\relax }}{32}{figure.caption.31}% 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces CUDA内存模型\relax }}{37}{figure.caption.35}% 
+\contentsline {figure}{\numberline {4.4}{\ignorespaces CUDA线程与检测像素映射关系\relax }}{38}{figure.caption.36}% 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces 四张SIR-C/XSAR强度图像\relax }}{39}{figure.caption.37}% 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces LMM检测结果\relax }}{40}{figure.caption.38}% 
