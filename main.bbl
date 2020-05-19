@@ -1,0 +1,25 @@
+\begin{thebibliography}{3}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
+  \urlstyle{same}\fi
+
+\bibitem[Knight et~al.(2018)Knight and Gunther]{Knight2018Synthetic}
+Knight~C~P, Gunther~J~H.
+\newblock Synthetic aperture radar processing\allowbreak[Z].
+\newblock 2018.
+
+\bibitem[Moreira et~al.(2013)Moreira, Prats-Iraola, Younis, Krieger, Hajnsek,
+  and Papathanassiou]{Moreira2013A}
+Moreira~A, Prats-Iraola~P, Younis~M, et~al.
+\newblock A tutorial on synthetic aperture radar\allowbreak[J].
+\newblock IEEE Geoscience \& Remote Sensing Magazine, 2013, 1\penalty0
+  (1):\penalty0 6-43.
+
+\bibitem[李德仁\ 等(2012)李德仁, 童庆禧, 李荣兴, 龚健雅, and
+  张良培]{李德仁2012高分辨率对地观测的若干前沿科学问题}
+李德仁, 童庆禧, 李荣兴, 等.
+\newblock 高分辨率对地观测的若干前沿科学问题\allowbreak[J].
+\newblock 中国科学:地球科学, 2012\penalty0 (6):\penalty0 15-23.
+
+\end{thebibliography}

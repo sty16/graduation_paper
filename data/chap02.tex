@@ -1,4 +1,4 @@
-\chapter{极化白化滤波器舰船目标检测}
+\chapter{基于PWF的极化SAR图像舰船目标检测}
 \label{cha:PWF}
 
 \section{引言}
@@ -195,7 +195,7 @@
  的矩阵相乘，对于该矩阵乘法，采用了动态并行的方式进行了进一步的优化，从当前核函数中创建新的核函数来完并行完成矩阵乘法运算。
  得到滤波器参数后，按照式\ref{equ:chap3:construct}生成重构强度值，并与牛顿迭代法获得的阈值做分割，输出二值检测结果
  图像。
-\subsection{多GPU协同}
+\subsection{多GPU协同算法设计}
 
  多GPU协同APWF方法实现，当多个GPU通过PCIe总线连接时，不同GPU设备之间可以进行通信与同步。多GPU编程中要首先确定
  系统中可用的GPU数量，之后将计算任务合理的分配到各个GPU上。在APWF算法设计中，首先为各个GPU设备分配设备内存，流和事件
@@ -217,9 +217,9 @@
   \begin{figure}[h]
     \centering
     \subcaptionbox{SPAN图\label{fig:subfig2}}
-        {\includegraphics[width=5cm]{resultSPAN.pdf}}
+        {\includegraphics[width=5cm]{resultSPAN.png}}
     \subcaptionbox{PWF检测结果\label{fig:subfig2}}
-        {\includegraphics[width=5cm]{resultPWF.pdf}}
+        {\includegraphics[width=5cm]{resultPWF.png}}
     \caption{PWF图像检测结果}
     \label{fig:chap3:resultPWF}
   \end{figure}

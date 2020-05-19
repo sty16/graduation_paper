@@ -149,17 +149,20 @@
       资源，将线程块大小设计为32x32。考虑到GPU同时并发线程数量的限制与全局内存空间容量，将线程网格大小设计为16x16，对于线程块中的线程
       通过其二维线程索引(threadIDx)与原始SAR图像上的列一一对应，使用线程块索引(blockIDx)与原始SAR图像的行去对应。
       我们设计的线程网格数量为256小于原始SAR图像的行数，因此对SAR图像的检测操作将被分配到四个内核中去执行。内核中的线程通过
-      内核序号来找到自己对应的SAR图像行索引。四个内核被装载到同一CUDA流中在GPU上被顺序调度。
+      内核序号来找到自己对应的SAR图像行索引，四个内核被装载到同一CUDA流中在GPU上被顺序调度。线程内存空间设计，在CUDA架构中
+      不能在核函数中去动态声明较大的内存区域，因此需要在内核执行前由主机分配好线程内存池,然后线程根据自身索引与给定的线程空间大小去找到
+      本线程私有内存空间的起始地址。线程内存空间分析，对于PCDM方法，要存储九个像元的散射矩阵信息、协方差矩阵信息与中心像元的极化协方差
+      差异矩阵，综合考虑PCDM矩阵计算特征值等其他计算开销，最终我们一个线程所占有的内存空间设置为8192B。
 
-      内核函数的设计，首先计算线程所对应的二维索引，将该二维索引与其3x3邻域的散射矩阵数据从全局内存复制到
-      线程私有的内存空间中,之后计算这九个像素所对应的协方差矩阵并调整为9x9大小，该矩阵每一列代表各像素的协方差
-      矩阵元素。将该矩阵的第五列即中心像素的协方差矩阵与其他列依次做差求绝对值和得到极化协方差差异矩阵。首先对
-      该矩阵应用SPAN检测器，即计算矩阵对角线元素之和与经验阈值做比较，当该SPAN值大于经验阈值时，将该像素判别为舰船像素。
-      接下来计算极化协方差差异矩阵的PSH极化特征，该特征为PCDM矩阵最小特征值与其他两特征值绝对值之比，因此问题转化为
+      内核函数的设计，首先计算本线程所对应的二维索引，将该二维索引与其3x3邻域对应的SAR图像数据从全局内存复制到
+      线程私有的内存空间中,之后计算这九个像元所对应的协方差矩阵并调整为9x9大小，该矩阵每一列代表各像元的协方差
+      矩阵元素。将该矩阵的第五列即中心像素的协方差矩阵与其他列依次做差求绝对和得到极化协方差差异矩阵。得到PCDM矩阵后，首先对
+      该矩阵应用SPAN检测器，即计算矩阵对角线元素之和并与经验阈值做比较，当该SPAN值大于经验阈值时，将该像素判别为舰船像素。
+      接下来计算极化协方差差异矩阵的PSH极化特征，该特征为PCDM矩阵最小特征值与其他两个特征值绝对值之比，因此问题转化为
       计算极化协方差差异矩阵特征值的问题。PCDM矩阵为实对称矩阵，计算其特征值采用雅克比迭代的方式，迭代过程的矩阵更新
       公式如式\ref{equ:chap4:jacobian}所示，其中$\varphi$通过选择矩阵非对角绝对值最大元素计算得到。具体的算法流程为
-      算法\ref{alg:chap4:jacobianeigen}所示。得到矩阵的特征值后计算PSH计算特征的大小并与经验阈值做比较，如果PSH值大于
-      经验分割阈值，则该像素判断为舰船目标像素。主机端等到GPU上所有线程核函数执行结束后，将检测结果从设备内存拷贝至主机内存，结合
+      算法\ref{alg:chap4:jacobianeigen}所示。得到矩阵的特征值后计算PSH极化特征的大小并与经验阈值做比较，如果PSH值大于
+      经验阈值，则判断该像素为舰船目标像素。当GPU上所有线程核函数执行结束后，主机将检测结果从设备内存拷贝至主机内存，结合
       OpenCV进行图像显示，并保存检测结果。
 
        \begin{equation}
@@ -220,174 +223,89 @@
       \KwOut{矩阵$\bf{A}$的特征值}  
     \end{algorithm}
 
-
-      \begin{equation}
-      \label{equ:chap2:paramupdate}
-      \begin{array}{*{20}{c}}
-        {{\mu _k}^{i + 1} = \frac{{\sum\limits_{j = 1}^n {{\gamma _{jk}}{y_j}} }}{{\sum\limits_j^n {{\gamma _{jk}}} }}}\\
-        {{\sigma _k}^{{\rm{i}} + 1} = \sqrt {\frac{{\sum\limits_{j = 1}^n {{\gamma _{jk}}({y_j} - {\mu _k}^{i + 1})} }}{{\sum\limits_j^n {{\gamma _{jk}}} }}} }\\
-        {{\alpha _k}^{i + 1} = \frac{{\sum\limits_j^n {{\gamma _{jk}}} }}{n}}\\
-        {{\gamma _{jk}} = \frac{{{\alpha _k}^i\phi ({y_j}|u_k^i,\sigma _k^i)}}{{\sum\limits_{k = 1}^K {{\alpha _k}^i\phi ({y_j}|u_k^i,\sigma _k^i)} }}}
-      \end{array}
-    \end{equation}
-
-    受自然条件风速、风向的影响，同一SAR图像不同区域的杂波分布不尽相同，因此采用图\ref{fig:chap2:slide}所示的
-    滑动窗进行局部杂波像素的选取，该滑动窗分为三个区域分别为检测像素区域，保护区域，杂波区域。合适大小的保护区域可以减少
-    舰船目标像素对杂波统计分布参数估计的干扰。选定杂波像素值后，将其代入到式\ref{equ:chap2:paramupdate}中进行
-    海杂波分布参数的迭代估计。
-
-\section{应用LMM模型进行CFAR舰船检测}
-    当采用混合对数正太模型对海杂波分布进行建模后，根据给定的恒虚警率来实现CFAR方法检测。检测阈值通过
-    式\ref{equ:chap2:detecthres}来得到,该式中T为恒虚警率所对应的检测阈值，$f(x)$为采用局部海杂波像素估计
-    得到的混合对数正太分布，$F(x)$为$f(x)$对应的累积密度分布函数。我们采用牛顿迭代法来解决这个非线性的
-    等式方程，迭代更新公式如式\ref{equ:chap2:newtonupdate}所示,迭代停止的条件为$\left| {{T_{i + 1}} - {T_i}} \right| < \delta$
-    当满足迭代精度要求后，最终的检测阈值为${T^*} = {T_{i + 1}}$。
-
-    \begin{equation}
-      \label{equ:chap2:detecthres}
-      {{\rm{P}}_{FA}} = \int_T^{ + \infty } {f(x)dx = 1 - F(x)}
-    \end{equation}
-
-    \begin{equation}
-      \label{equ:chap2:newtonupdate}
-      {{\rm{T}}_{i + 1}} = {T_i} - \frac{{F({T_i}) + {P_{FA}} - 1}}{{f({T_i})}}
-    \end{equation}
-
-    在\ref{sec:chap2:sec2}节，我们证明LMM模型等价于对数域的混合高斯模型，$f(x)$的概率密度函数在对数变换后可表示为式\ref{equ:chap2:GMM}
-    的形式。混合高斯分布的累积概率密度函数可以表示为式\ref{equ:chap2:erf}。其中$erf(x)$为误差函数，可以通过查表的方法
-    来得到误差函数的值从而减少计算量。
-
-    \begin{equation}
-      \label{equ:chap2:erf}
-      F(x) = \frac{1}{2}\sum\limits_{i = 1}^K {{\lambda _k}[1 + erf(\frac{{x - {u_i}}}{{\sqrt 2 {\sigma _i}}})]}
-    \end{equation}
-
-    综合前几节所述，使用混合对数正太模型的CFAR舰船目标检测流程如算法\ref{alg:chap2:LMM}所示
-
-    \begin{algorithm}[t]
-      \caption{基于LMM分布的CFAR舰船检测算法}
-      \label{alg:chap2:LMM}
-      \KwIn{HH通道强度SAR图像}
-      \BlankLine
-      初始化，将强度图像做对数变换得到对数域强度图像,设置滑动窗的参数。
-
-      \ForEach{图像中的像素}{
-          从对数强度图像中根据滑动窗选择海杂波像素值$\bf{y}$
-
-          采用EM迭代算法计算LMM分布参数$\mu_i$，$\alpha_i$与$\sigma_i$
-
-          根据式\ref{equ:chap2:newtonupdate}计算检测阈值$T$
-
-          如果$y(i,j)>T$则该像素点为舰船目标像素点，否则为背景杂波像素点。
-      }
-      \KwOut{二值舰船检测结果图像$result$}  
-    \end{algorithm}
-
-\section{GPU算法优化}
-    通常应用滑动窗的SAR图像目标检测方法都面临着计算复杂度高，时间效率低等问题。而滑动窗参数估计是一类典型的
-    可以采用并行方式去计算的问题，不同滑动窗之间所用数据和输出结果是相互独立的，没有依赖与调用关系，因此可以
-    将滑动穿参数估计部分在GPU多线程上去执行。
-
-    在估计LMM分布参数的过程中，要进行多次迭代并访问杂波像素值来更新分布参数，因此减少此部分数据访存时间可以
-    大幅提升算法的运行效率，对于GPU而言总主要有以下几种存储类型，一、二级缓存，寄存器，全局内存，共享内存，纹理内存，
-    常量内存。其中一二级缓存为不可编程的存储介质，系统运行时环境会自动分配数据在其上的位置以获得更加优良的性能。对于可编程
-    存储介质，通常每个线程的寄存器数量非常有限，因此不适合存储海杂波像素值。而全局内存、常量内存与纹理内存是板上内存，访问延
-    迟相较于片上的共享内存要高20~30倍。因此我们选择片上的共享内存作为海杂波像素的高速暂存存储器，通过访问共享内存上的杂波像素，
-    可以优化全局内存访问的模式，从而提升核函数的执行速度。
-
-     \begin{figure}[H] % use float package if you want it here
-      \centering
-      \includegraphics[width=0.5\textwidth]{memory.png}
-      \caption{CUDA内存模型}
-      \label{fig:chap2:slide}
-    \end{figure}   
-
-    共享内存得容量有限，通常为64KB。该存储空间位于流多处理器上类似于CPU的一级缓存，此内存空间被一个线程块中的
-    所有线程共享。要合理的设置线程块的大小，避免因共享内存空间过度使用导致活跃线程束减少从而影响程序的执行效率。
-    结合滑动窗的大小，我们最终将线程块的大小设置为8x8，将线程网格的大小设置为$(\left\lfloor {\frac{{w + 1}}{8}} \right\rfloor ,\left\lfloor {\frac{{h + 1}}{8}} \right\rfloor )$
-    。其中$\left\lfloor {} \right\rfloor $代表向下取整，$w$代表SAR图像的宽度，$h$代表SAR图像的高度。
-    
-    在分配好线程块与线程网格大小后，每个线程与SAR图像像素索引对应关系为：row = threadIdx.x + blockDim.x * blockIdx.x; column = threadIdx.y + blockDim.y * blockIdx.y;
-    之后根据滑动窗，将检测像素所对应的海杂波像素复制到该线程所对应的共享内存内存空间，在EM算法过程中在共享内存中读取杂波像素值进行分布
-    的参数更新，当满足参数迭代停止条件后得到LMM分布参数，然后应用牛顿迭代法计算检测阈值$T$,当检测像素值大于阈值$T$时，
-    该像素被标记为舰船目标像素。当所有线程执行完毕后，将检测结果从设备内存拷贝至主机内存，进行进一步的分析与处理。
-
-    \begin{figure}[H] % use float package if you want it here
-      \centering
-      \includegraphics[width=0.9\textwidth]{map.jpg}
-      \caption{CUDA线程与检测像素映射关系}
-      \label{fig:chap2:slide}
-    \end{figure} 
-
-\section{LMM实验结果}
-    本次实验中我们使用的是由星载成像雷达系统(SIR-C/X)拍摄的香港维多利亚港的SAR图像数据。SAR图像部分HH通道
-    强度图像如图\ref{fig:chap2:source}所示
-
+\section{PCDM算法检测结果}
+    在本次实验中我们使用的是Radarsat-2拍摄的远洋极化SAR数据，通常舰船目标相对于海平面的后向散射系数更高,具有更高的散射回波
+    功率，因此舰船SAPN强度像素值要高于海杂波像素。在PCDM方法中充分利用了检测像素与其邻域像素的空间相干关系，因此基于PCDM的SPAN图像可以提升船海之间的差异度，
+    有着更强的舰船与海杂波的区分能力，图\ref{tab:chap4:detectresult}所示的为SAR局部图像切片的SPAN图像与PCDM SPAN图像的对比。从实验结果
+    上表明，基于PCDM的舰船像素与海杂波像素SPAN值的对比度相较于基于协方差矩阵的SPAN值的对比度更加明显。因此我们选取PCDM SPAN最大值与最小值差
+    的千分之五作为分割阈值，从而区分舰船目标与背景杂波。
 
   \begin{figure}[h]
-    \centering%
-    \begin{subfigure}{0.4\textwidth}\
-      \includegraphics[width=5cm]{HongKong1.png}
-    \end{subfigure}%
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[width=5cm]{HongKong2.png}
-    \end{subfigure}
-
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[height=5cm]{HongKong3.png}
-    \end{subfigure}%
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[height=5cm]{HongKong4.png}
-    \end{subfigure}   
-
-    \caption{四张SIR-C/XSAR强度图像}
-    \label{fig:chap2:source}
+    \centering
+    \subcaptionbox{PCDMSPAN图\label{chap4:fig:subfig2}}
+        {\includegraphics[width=9cm]{PCDMSPAN.png}}
+    \subcaptionbox{SPAN图像\label{chap4:fig:subfig2}}
+        {\includegraphics[width=9cm]{SPAN.png}}
+    \caption{PCDNSPAN图像与SPAN图像对比}
+    \label{fig:chap4:SPANCMP}
   \end{figure}
 
-  在检测中我们设置恒虚警为$1x10^{-5}$，检测结果如图\ref{fig:chap2:detectresult}所示，其中白色区域代表舰船目标像素区域，
-  黑色区域代表背景杂波区域，从结果可以看出在给定的虚警率下LMM算法对目标像素与舰船像素作做出了正确的
-  分割。本次实验使用的GPU为NVIDIA TITAN V，经过多次实验验证，相较于使用单线程CPU的检测方法，程序运行的时间效率提升了近21倍，
-  不同平台运行时间如表所示，原始SAR图像中的舰船数量较少，检测结果中虚警漏报的数量均为0，准确率达到了$100\%$。
+  图像检测结果，本次实验所使用的GPU为TiTAN V，运行显存内存为12G。基于MATLAB的串行算法运行的CPU为Intel(R) i7-9750H，系统内存为16G。
+  为了验证检测结果的有效性，我们将PCDM方法与第二章实现的PWF方法进行对比如图\ref{fig:chap4:reultCMP}所示，从左到右依次为SPAN图像，PWF检测结果，PCDM检测结果。
+  从检测结果上来看，PCDM得到的舰船检测结果与Pauli图像更加吻合，舰船边缘相较于PWF方法检测结果更加精确。算法的检测性能使用第二章定义的品质因数$F_1$来表示
+  即正确检测数量与虚警数量和船只真实数量之和的比值。检测结果如表\ref{tab:chap4:detectresult}所示，PCDM的检测的品质因数高于PWF检测方法，可以得出结论PCDM算法对于
+  复杂海况的适应能力比PWF强，即使面对不同海况依然可以保持高检测精度。
 
+  在PCDM方法中不需要使用大量的海杂波像素去估计滤波器参数，该算法主要是计算大小为3x3的极化协方差差异矩阵及其特征值，因此算法在时间与空间性能上都优于极化白化滤波器方法。
+  CPU串行与GPU并行的PCDM算法时间如表所示，因为GPU设备初始化开销代价所占比重较大，且CPU与GPU之间需要进行数据拷贝、通信与同步，所以本身在CPU上运行时间较短的程序在GPU上
+  的加速比会降低。对于大小为1000x1000的SAR图像，经过多次实验测试，并行PCDM算法在Titan V上的运行的平均时间为0.69s，串行MATLAB方法在CPU上的运行时间为11.37秒，在时间性能上
+  获得了近17倍的提升。
+
+  
   \begin{figure}[h]
-    \centering%
-    \begin{subfigure}{0.4\textwidth}\
-      \includegraphics[width=5cm]{HongKong1r.jpg}
-    \end{subfigure}%
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[width=5cm]{HongKong2r.jpg}
-    \end{subfigure}
+    \centering
+    \subcaptionbox{SPAN图\label{chap4:fig:subfig2}}
+        {\includegraphics[width=7cm]{resultSPAN.png}}
+    \subcaptionbox{PWF检测结果\label{chap4:fig:subfig2}}
+        {\includegraphics[width=7cm]{resultPWF.png}}
 
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[height=5cm]{HongKong3r.jpg}
-    \end{subfigure}%
-    \begin{subfigure}{0.4\textwidth}
-      \includegraphics[height=5cm]{HongKong4r.jpg}
-    \end{subfigure}   
-
-    \caption{LMM检测结果}
-    \label{fig:chap2:detectresult}
+    \subcaptionbox{PCDM检测结果}
+        {\includegraphics[width=7cm]{resultPCDM.png}}    
+    \caption{舰船检测结果(a)SPAN图像;(b)PWF;(c)PCDM}
+    \label{fig:chap4:reultCMP}
   \end{figure}
 
   \begin{table}[htb]
   \centering
     \begin{minipage}[t]{1\linewidth} % 如果想在表格中使用脚注，minipage是个不错的办法
-    \caption[LMM算法时间]{串行与并行LMM算法运行时间对比}
-    \label{tab:chap3:timeresult}
-      \begin{tabularx}{\linewidth}{lXX}
+    \caption[PCDM检测结果]{SAR图像检测结果对比}
+    \label{tab:chap4:detectresult}
+      \begin{tabularx}{\linewidth}{lXXXXXX}
         \toprule[1.5pt]
-        {\heiti 检测算法} & {\heiti 运行平台} & {\heiti 运行时间/s} \\ \midrule[1pt]
-        LMM-CFAR(Matlab单线程) & (Intel(R) i7-9750H CPU) & 15.1 \\
-        LMM-CFAR(GPU多线程) &  GPU(Titan V) & 0.73 \\
+        {\heiti 检测方法} & {\heiti 船只数量} & {\heiti 总检测数量} & {\heiti 正确检测数量} & {\heiti 虚警数量} & {\heiti 漏报数量} & {\heiti $F_1$}\\ \midrule[1pt]
+        PCDM & 118 & 120 & 117 & 3 & 1 & 0.967 \\
+        PWF & 118 & 123 & 117 & 6 & 1 & 0.943 \\
         \bottomrule[1.5pt]
       \end{tabularx}
     \end{minipage}
-  \end{table}
+\end{table}
+
+  \begin{table}[htb]
+  \centering
+    \begin{minipage}[t]{1\linewidth} % 如果想在表格中使用脚注，minipage是个不错的办法
+    \caption[PCDM算法运行时间对比]{不同平台算法运行时间对比}
+    \label{tab:chap4:timeresult}
+      \begin{tabularx}{\linewidth}{lXX}
+        \toprule[1.5pt]
+      {\heiti 检测算法} & {\heiti 运行平台} & {\heiti 运行时间/s} \\ \midrule[1pt]
+        PCDM & (Intel(R) i7-9750H CPU) & 11.4\\
+        GPU并行PCDM & GPU(Titan V) & 0.67 \\
+        PWF & (Intel(R) i9-7920X CPU) & 67.4\\
+        GPU多线程PWF &  GPU(Titan V) & 2.1 \\
+        多卡协同PWF & 2 GPU(Titan V) & 1.27 \\
+        \bottomrule[1.5pt]
+      \end{tabularx}
+    \end{minipage}
+\end{table}
 
 \section{小结}
-    本章我们实现了基于混合对数正太分布的恒虚警率SAR图像舰船检测方法，在本质上混合对数分布等价于
-    强度SAR图像在对数域上的混合高斯分布，因此采用了EM算法与牛顿迭代法得到分布参数与检测阈值。对于滑动窗
-    参数估计的部分，我们将其放置在GPU上进行并行计算，并使用延迟更低的共享内存来加快访存速度。相较于传统的
-    串行解决方案，本章基于GPU的LMM方法不仅在时间性能获得了显著的提升同时还保证了检测效果的有效性。
+    对于极化SAR图像中的舰船目标检测，在本章我们实现了基于极化协方差差异矩阵的舰船检测方法。在该方法中，
+    类比于光学图像检测中的LBP特征，我们引出了极化SAR图像的极化协方差差异矩阵(PCDM)的概念，PCDM矩阵计算了
+    待检测像素与邻域像素的协防差矩阵差异，充分利用了空间相干信息，提高了舰船目标与背景杂波之间的对比度。
+    接下来我们将PCDM矩阵应用于舰船检测，首先使用PCDM矩阵的SPAN值对船海像素做了一个粗略的划分，然后提取了PCDM矩阵
+    的PSH极化特征，将该特征用于舰船目标检测，最后联合SPAN检测器得到的初步检测结果得到了最终的检测结果。实验结果
+    表明PCDM方法可以有效的适应不同的复杂海况，相较于PWF算法，在检测精度、时间与空间消耗上都优于PWF算法。最后我们
+    实现了基于GPU的并行PCDM方法，将图像像素对应的PCDM矩阵与PSH极化特征计算对应到每一个GPU线程中去并发执行。相比于
+    串行执行的方式，并行的方法在时间性能上提升了近20倍，可以满足实时检测的要求
 
 
