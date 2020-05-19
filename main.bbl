@@ -1,4 +1,4 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
@@ -21,5 +21,54 @@ Moreira~A, Prats-Iraola~P, Younis~M, et~al.
 李德仁, 童庆禧, 李荣兴, 等.
 \newblock 高分辨率对地观测的若干前沿科学问题\allowbreak[J].
 \newblock 中国科学:地球科学, 2012\penalty0 (6):\penalty0 15-23.
+
+\bibitem[Crisp(2004)]{article}
+Crisp~D.
+\newblock The state-of-the-art in ship detection in synthetic aperture radar
+  imagery\allowbreak[J].
+\newblock 2004.
+
+\bibitem[王兆成\ 等(2017)王兆成, 李璐, 杜兰, and
+  徐丰]{王兆成2017基于单极化}
+王兆成, 李璐, 杜兰, 等.
+\newblock
+  基于单极化SAR图像的舰船目标检测与分类方法\allowbreak[J].
+\newblock 科技导报, 2017\penalty0 (20):\penalty0 88-95.
+
+\bibitem[Novak L~M(1993)]{Novak}
+Novak L~M~N~C~M, Owirka G~J.
+\newblock Netishen c m. performance of a high-resolution polarimetric sar
+  automatic target recognition system\allowbreak[J].
+\newblock Lincoln Laboratory Journal, 1993:\penalty0 11-24.
+
+\bibitem[Carretero-Moya et~al.(2010)Carretero-Moya, Gismero-Menoyo, Blanco-del
+  Campo, and Asensio-Lopez]{Carretero2010Statistical}
+Carretero-Moya~J, Gismero-Menoyo~J, Blanco-del Campo~A, et~al.
+\newblock Statistical analysis of a high-resolution sea-clutter
+  database\allowbreak[J].
+\newblock IEEE Transactions on Geoscience & Remote Sensing, 2010, 48\penalty0
+  (4):\penalty0 p.2024-2037.
+
+\bibitem[Q. et~al.(2000)Q., Jiang, E., Aitnouri, S., Wang, &, D., and
+  Ziou]{Q2000Automatic}
+Q., Jiang, E., et~al.
+\newblock Automatic detection for ship target in sar imagery using
+  pnn-model\allowbreak[J].
+\newblock Canadian Journal of Remote Sensing, 2000.
+
+\bibitem[Gao(2011)]{Gao2011A}
+Gao~G.
+\newblock A parzen-window-kernel-based cfar algorithm for ship detection in sar
+  images\allowbreak[J].
+\newblock Geoscience & Remote Sensing Letters IEEE, 2011, 8\penalty0
+  (3):\penalty0 p.557-561.
+
+\bibitem[Miao et~al.(2017)Miao, Leng, Zhao, and Ji]{Miao2017A}
+Miao~K, Leng~X, Zhao~L, et~al.
+\newblock A modified faster r-cnn based on cfar algorithm for sar ship
+  detection\allowbreak[C]//\allowbreak
+2017 International Workshop on Remote Sensing with Intelligent Processing
+  (RSIP).
+\newblock 2017.
 
 \end{thebibliography}

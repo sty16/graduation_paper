@@ -27,45 +27,46 @@ Warning--I didn't find a database entry for "chuban2001"
 Warning--I didn't find a database entry for "oclc2000"
 Warning--I didn't find a database entry for "cnarticle"
 Warning--I didn't find a database entry for "cnproceed"
-You've used 3 entries,
+Warning--empty journal in article
+You've used 10 entries,
             4107 wiz_defined-function locations,
-            911 strings with 7048 characters,
-and the built_in function-call counts, 16341 in all, are:
-= -- 333
-> -- 1886
-< -- 2394
-+ -- 707
-- -- 172
-* -- 111
-:= -- 2386
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 5
-chr.to.int$ -- 634
-cite$ -- 3
-duplicate$ -- 60
-empty$ -- 156
-format.name$ -- 55
-if$ -- 4098
+            955 strings with 8316 characters,
+and the built_in function-call counts, 50340 in all, are:
+= -- 938
+> -- 5857
+< -- 7430
++ -- 2128
+- -- 408
+* -- 340
+:= -- 7203
+add.period$ -- 30
+call.type$ -- 10
+change.case$ -- 18
+chr.to.int$ -- 1912
+cite$ -- 11
+duplicate$ -- 203
+empty$ -- 501
+format.name$ -- 163
+if$ -- 12747
 int.to.chr$ -- 1
-int.to.str$ -- 4
+int.to.str$ -- 11
 missing$ -- 0
-newline$ -- 22
-num.names$ -- 9
-pop$ -- 767
+newline$ -- 58
+num.names$ -- 30
+pop$ -- 2345
 preamble$ -- 1
-purify$ -- 3
+purify$ -- 10
 quote$ -- 0
-skip$ -- 1513
+skip$ -- 4998
 stack$ -- 0
-substring$ -- 835
-swap$ -- 10
-text.length$ -- 34
+substring$ -- 2447
+swap$ -- 29
+text.length$ -- 102
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 37
-warning$ -- 0
-while$ -- 44
+type$ -- 126
+warning$ -- 1
+while$ -- 134
 width$ -- 0
-write$ -- 49
-(There were 22 warnings)
+write$ -- 148
+(There were 23 warnings)
