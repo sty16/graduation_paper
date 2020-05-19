@@ -1,0 +1,43 @@
+\contentsline {chapter}{\numberline {第1章}引言}{1}{chapter.1}% 
+\contentsline {section}{\numberline {1.1}研究背景与意义}{1}{section.1.1}% 
+\contentsline {section}{\numberline {1.2}研究现状与进展}{2}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}单极化SAR图像目标检测}{2}{subsection.1.2.1}% 
+\contentsline {section}{\numberline {1.3}论文内容}{3}{section.1.3}% 
+\contentsline {chapter}{\numberline {第2章}基于PWF的极化SAR图像舰船目标检测}{4}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}引言}{4}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}海杂波统计特性}{4}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}极化白化滤波器}{5}{section.2.3}% 
+\contentsline {section}{\numberline {2.4}自适应PWF舰船检测算法}{6}{section.2.4}% 
+\contentsline {section}{\numberline {2.5}基于GPU的PWF算法实现}{8}{section.2.5}% 
+\contentsline {subsection}{\numberline {2.5.1}GPU算法设计与优化}{8}{subsection.2.5.1}% 
+\contentsline {subsection}{\numberline {2.5.2}多GPU协同算法设计}{9}{subsection.2.5.2}% 
+\contentsline {section}{\numberline {2.6}实验结果与加速比测试}{9}{section.2.6}% 
+\contentsline {section}{\numberline {2.7}小结}{11}{section.2.7}% 
+\contentsline {chapter}{\numberline {第3章}基于混合对数正太模型SAR图像目标检测}{12}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}引言}{12}{section.3.1}% 
+\contentsline {section}{\numberline {3.2}混合对数正太模型}{12}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}海杂波分布参数估计}{13}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}应用LMM模型进行CFAR舰船检测}{14}{section.3.4}% 
+\contentsline {section}{\numberline {3.5}GPU算法优化}{15}{section.3.5}% 
+\contentsline {section}{\numberline {3.6}LMM实验结果}{17}{section.3.6}% 
+\contentsline {section}{\numberline {3.7}小结}{19}{section.3.7}% 
+\contentsline {chapter}{\numberline {第4章}基于PCDM的极化SAR图像舰船目标检测}{20}{chapter.4}% 
+\contentsline {section}{\numberline {4.1}引言}{20}{section.4.1}% 
+\contentsline {section}{\numberline {4.2}PCDM理论背景}{20}{section.4.2}% 
+\contentsline {subsection}{\numberline {4.2.1}极化SAR散射表征与SPAN理论}{20}{subsection.4.2.1}% 
+\contentsline {subsection}{\numberline {4.2.2}极化协方差差异矩阵}{21}{subsection.4.2.2}% 
+\contentsline {section}{\numberline {4.3}基于PCDM的舰船目标检测算法}{22}{section.4.3}% 
+\contentsline {section}{\numberline {4.4}基于GPU的PCDM算法设计}{24}{section.4.4}% 
+\contentsline {section}{\numberline {4.5}PCDM算法检测结果}{25}{section.4.5}% 
+\contentsline {section}{\numberline {4.6}小结}{28}{section.4.6}% 
+\contentsline {chapter}{插图索引}{30}{section*.33}% 
+\contentsline {chapter}{表格索引}{31}{section*.35}% 
+\contentsline {chapter}{公式索引}{32}{section*.37}% 
+\contentsline {chapter}{参考文献}{33}{section*.39}% 
+\contentsline {chapter}{致\hspace {\ccwd }谢}{34}{section*.41}% 
+\contentsline {chapter}{声\hspace {\ccwd }明}{35}{section*.43}% 
+\contentsline {chapter}{\numberline {附录 A}外文资料的调研阅读报告或书面翻译}{36}{appendix.A}% 
+\contentsline {section}{\numberline {A.1}单目标规划}{36}{section.A.1}% 
+\contentsline {subsection}{\numberline {A.1.1}线性规划}{36}{subsection.A.1.1}% 
+\contentsline {subsection}{\numberline {A.1.2}非线性规划}{37}{subsection.A.1.2}% 
+\contentsline {subsection}{\numberline {A.1.3}整数规划}{37}{subsection.A.1.3}% 
