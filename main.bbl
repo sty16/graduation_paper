@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{16}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
@@ -70,5 +70,46 @@ Miao~K, Leng~X, Zhao~L, et~al.
 2017 International Workshop on Remote Sensing with Intelligent Processing
   (RSIP).
 \newblock 2017.
+
+\bibitem[{Novak} et~al.(1989){Novak}, {Sechtin}, and {Cardullo}]{18677}
+{Novak}~L~M, {Sechtin}~M~B, {Cardullo}~M~J.
+\newblock Studies of target detection algorithms that use polarimetric radar
+  data\allowbreak[J].
+\newblock IEEE Transactions on Aerospace and Electronic Systems, 1989,
+  25\penalty0 (2):\penalty0 150-165.
+
+\bibitem[Touzi et~al.(2015)Touzi, Hurley, and Vachon]{Touzi2015Optimization}
+Touzi~R, Hurley~J, Vachon~P~W.
+\newblock Optimization of the degree of polarization for enhanced ship
+  detection using polarimetric radarsat-2\allowbreak[J].
+\newblock IEEE Transactions on Geoscience \& Remote Sensing, 2015, 53\penalty0
+  (10):\penalty0 5403-5424.
+
+\bibitem[Novak et~al.(1990)Novak and Burl]{Novak1990Optimal}
+Novak~L, Burl~M.
+\newblock Optimal speckle reduction in polarimetric sar
+  imagery\allowbreak[C]//\allowbreak
+1990.
+
+\bibitem[Lee et~al.(1994)Lee, Schuler, Lang, and Ranson]{Lee1994K}
+Lee~J~S, Schuler~D~L, Lang~R~H, et~al.
+\newblock K-distribution for multi-look processed polarimetric sar
+  imagery\allowbreak[C]//\allowbreak
+International Geoscience \& Remote Sensing Symposium.
+\newblock 1994.
+
+\bibitem[{Freeman} et~al.(1998){Freeman} and {Durden}]{673687}
+{Freeman}~A, {Durden}~S~L.
+\newblock A three-component scattering model for polarimetric sar
+  data\allowbreak[J].
+\newblock IEEE Transactions on Geoscience and Remote Sensing, 1998, 36\penalty0
+  (3):\penalty0 963-973.
+
+\bibitem[Tao et~al.(2017)Tao, Zhen, and Xiong]{Tao2017PolSAR}
+Tao~Z, Zhen~Y, Xiong~H.
+\newblock Polsar ship detection based on the polarimetric covariance difference
+  matrix\allowbreak[J].
+\newblock IEEE Journal of Selected Topics in Applied Earth Observations \&
+  Remote Sensing, 2017, 10\penalty0 (7):\penalty0 3348-3359.
 
 \end{thebibliography}
