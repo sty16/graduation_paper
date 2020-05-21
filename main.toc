@@ -35,6 +35,5 @@
 \contentsline {chapter}{插图索引}{33}{section*.34}% 
 \contentsline {chapter}{表格索引}{34}{section*.36}% 
 \contentsline {chapter}{公式索引}{35}{section*.38}% 
-\contentsline {chapter}{参考文献}{36}{section*.40}% 
-\contentsline {chapter}{致\hspace {\ccwd }谢}{39}{section*.42}% 
-\contentsline {chapter}{声\hspace {\ccwd }明}{40}{section*.44}% 
+\contentsline {chapter}{致\hspace {\ccwd }谢}{36}{section*.40}% 
+\contentsline {chapter}{声\hspace {\ccwd }明}{37}{section*.42}% 

@@ -82,36 +82,35 @@
 % \ckeywords{\TeX, \LaTeX, CJK, 模板, 论文}
 
 \begin{eabstract}
-  Synthetic aperture radar (SAR) system provides an all-weather remote sensing method 
-  that can generate high-resolution ground object images under radar beam irradiation. 
-  Now, it has been widely used in Marine target detection and classification.In order 
-  to meet the requirement of high timeliness of SAR ship target detection, this paper
-  proposes a method based on CPU+GPU heterogeneous architecture for SAR image ship target 
-  detection.In this paper, three kinds of efficient target detection based on CPU+GPU heterogeneous
-  architecture are realized, these are summarized as follows:
+  Synthetic aperture radar (SAR) system provides an all-weather remote sensing method. 
+  It can generate high resolution ground-object images via radar beam irradiation. 
+  The SAR data has been widely used in ship detection and classification as well as other fields. In order 
+  to meet the real-time processing requirement of SAR system, this thesis
+  suggests a method based on a CPU+GPU heterogeneous architecture for SAR image processing.
+  Then three kinds of effective target detectors are realized by a CPU+GPU heterogeneous
+  architecture. The main contributions of this thesis are summarized as follows:
 
-  1)For polarization SAR images, with polarization whitening filter (PWF) method as an example,
-  this paper implements the GPU collaborative parallel polarization filter algorithm, the method 
-  estimates the local sea clutter covariance matrix and combine the polarization scattering channel information to 
-  get a pair of coherent spot suppression images. For the reconstruct image, CFAR detector was applied to get the 
-  final detection results.The experimental results show that the method is effective and the detection 
-  time is improved significantly, which is better than the traditional method
-  CPU platform.
+  1)For polarimetric SAR image, this thesis implements a parallel polarimetric whitening filter method for 
+  ship detection based on GPU processors. This method uses local sea clutter to calculate the filter parameters.
+  After that we use this whitening filter to combine the elements of the scattering matrix and get a coherent 
+  speckle suppression image. For this reconstruct image, a CFAR detector is applied to get the 
+  detection results. The experiment result shows that this method is effective and the detection 
+  time is significantly decreased combared with the traditional CPU platform.
 
-  2)For SAR images, the log-mixture gaussian model is used to describe the non-negative 
-  sea clutter distribution in amplitude SAR images, and the maximum expectation (EM) 
-  method is used to effectively estimate the sea clutter distribution parameters. 
-  According to the given false alarm rate in advance, the CAFR detection threshold is 
-  obtained by Newton iteration method.The experimental results of this method on NVIDIA
-  TITAN V GPU show that compared with the traditional CPU platform, the detection
-  efficiency of this method is improved by dozens of times
+  2)For SAR image, the lognormal mixture model is used to describe the non-negative 
+  sea clutter distribution. In this method, the maximum expectation (EM) 
+  algorithm is used to effectively estimate the sea clutter distribution. 
+  According to the given false alarm rate, the detection threshold is 
+  obtained by Newton iteration method.The experiment result of this method on the NVIDIA
+  TITAN V GPU platform shows that compared with the traditional CPU platform, the detection
+  time performance of this method is improved by dozens of times
 
- 3)A ship detection method based on polarization covariance difference matrix is implemented.  This method calculates the polarization covariance matrix 
-  difference between each pixel and its surrounding 3x3 neighborhood. The polarization covariance difference matrix improves
-  the ship-sea contrast in the local area.  In order to make full use of the polarization and intensity features 
-  in the polarization covariance difference matrix, the Shannon entropy of the polarization covariance
-  difference matrix is ​​calculated, and the threshold is used for segmentation to obtain the final detection result.  
-  Experimental results show that, compared with the PWF method, the detection accuracy of this method has been effectively improved.
+ 3)A ship detection method based on polarimetric covariance difference matrix is implemented.  This method calculates the polarmetirc covariance  
+  matirx difference between each pixel and its neighborhood. The polarimetric covariance difference matrix improves
+  the ship-sea contrast ratio in the local area.  In order to make full use of the polarization and intensity features 
+  in the polarimetric covariance difference matrix, the SPAN value and the PSH feature of the polarimetirc covariance
+  difference matrix is ​​calculated. Finally the experiential threshold is used to obtain the detection result.  
+  The experiment results show that, compared with the PWF method, the detection accuracy and efficiency of this method has been effectively improved.
 
  
 \end{eabstract}

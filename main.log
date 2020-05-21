@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  21 MAY 2020 18:30
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  21 MAY 2020 19:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1185,21 +1185,99 @@ LaTeX Font Info:    Font shape `TU/XITSMath-Regular(3)/m/n' will be
 
 ] (./data/chap01.tex
 第1章
+
+Package natbib Warning: Citation `Knight2018Synthetic' on page 1 undefined on input line 5.
+
+
+Package natbib Warning: Citation `Moreira2013A' on page 1 undefined on input line 7.
+
+
+Package natbib Warning: Citation `李德仁2012高分辨率对地观测的若干前沿科学问题' on page 1 undefined on input line 15.
+
+
+Package natbib Warning: Citation `Jin2012GPU' on page 1 undefined on input line 18.
+
+
+Package natbib Warning: Citation `Liu2009An' on page 1 undefined on input line 18.
+
 [1
 
 
 ]
 File: figures/GPUspeed.png Graphic file (type bmp)
 <figures/GPUspeed.png>
- [2] [3]
+
+
+Package natbib Warning: Citation `article' on page 2 undefined on input line 38.
+
+
+Package natbib Warning: Citation `王兆成2017基于单极化' on page 2 undefined on input line 44.
+
+[2]
+
+Package natbib Warning: Citation `Novak' on page 3 undefined on input line 48.
+
+
+Package natbib Warning: Citation `Carretero2010Statistical' on page 3 undefined on input line 50.
+
+
+Package natbib Warning: Citation `Q2000Automatic' on page 3 undefined on input line 51.
+
+
+Package natbib Warning: Citation `Gao2011A' on page 3 undefined on input line 52.
+
+
+Package natbib Warning: Citation `Miao2017A' on page 3 undefined on input line 53.
+
+
+Package natbib Warning: Citation `18677' on page 3 undefined on input line 58.
+
+
+Package natbib Warning: Citation `Touzi2015Optimization' on page 3 undefined on input line 58.
+
+
+Package natbib Warning: Citation `Novak1990Optimal' on page 3 undefined on input line 63.
+
+
+Package natbib Warning: Citation `18677' on page 3 undefined on input line 64.
+
+
+Package natbib Warning: Citation `Lee1994K' on page 3 undefined on input line 66.
+
+
+Package natbib Warning: Citation `Freitas2005The' on page 3 undefined on input line 67.
+
+
+Package natbib Warning: Citation `Bombrun2008Segmentation' on page 3 undefined on input line 67.
+
+
+Package natbib Warning: Citation `Song2017Ship' on page 3 undefined on input line 67.
+
+[3]
+
+Package natbib Warning: Citation `673687' on page 4 undefined on input line 71.
+
+
+Package natbib Warning: Citation `Tao2017PolSAR' on page 4 undefined on input line 72.
+
+
+Package natbib Warning: Citation `徐丰2017深度学习在' on page 4 undefined on input line 74.
+
 File: figures/structure.png Graphic file (type bmp)
 <figures/structure.png>
- [4]) (./data/chap02.tex [5]
+[4]) (./data/chap02.tex [5]
 第2章
 Package hyperref Info: bookmark level for unknown equation defaults to 0 on input line 23.
 [6
 
-] [7] [8] [9]
+] [7]
+
+Package natbib Warning: Citation `Novak1989Optimal' on page 8 undefined on input line 111.
+
+
+Package natbib Warning: Citation `J1986Speckle' on page 8 undefined on input line 116.
+
+[8] [9]
 File: figures/kernel.jpg Graphic file (type bmp)
 <figures/kernel.jpg>
  [10] [11]
@@ -1219,13 +1297,22 @@ Underfull \hbox (badness 1400) in paragraph at lines 243--243
 
 [12]) (./data/chap03.tex [13]
 第3章
+
+Package natbib Warning: Citation `Carretero2010Statistical' on page 14 undefined on input line 7.
+
+
+Package natbib Warning: Citation `838811' on page 14 undefined on input line 9.
+
 [14
 
 ]
+
+Package natbib Warning: Citation `6087012' on page 15 undefined on input line 44.
+
 Missing character: There is no ， in font [XITSMath-Regular.otf]/OT:script=math;language=DFLT;+ss08;!
 File: figures/slide.png Graphic file (type bmp)
 <figures/slide.png>
- [15] [16]
+[15] [16]
 File: figures/memory.png Graphic file (type bmp)
 <figures/memory.png>
  [17]
@@ -1251,12 +1338,32 @@ File: figures/HongKong4r.jpg Graphic file (type bmp)
 <figures/HongKong4r.jpg>
  [20]) (./data/chap04.tex [21]
 第4章
+
+Package natbib Warning: Citation `book' on page 22 undefined on input line 21.
+
+
+Package natbib Warning: Citation `Zhang2018Ship' on page 22 undefined on input line 37.
+
 [22
 
-] [23]
+]
+
+Package natbib Warning: Citation `Liu2010Statistical' on page 23 undefined on input line 50.
+
+
+Package natbib Warning: Citation `Lan2017Quaternionic' on page 23 undefined on input line 75.
+
+
+Package natbib Warning: Citation `张程2018基于' on page 23 undefined on input line 80.
+
+[23]
 File: figures/PCDMCal.png Graphic file (type bmp)
 <figures/PCDMCal.png>
- [24]
+
+
+Package natbib Warning: Citation `Durden1990The' on page 24 undefined on input line 103.
+
+[24]
 File: figures/PCDMalg.png Graphic file (type bmp)
 <figures/PCDMalg.png>
  [25] [26] [27]
@@ -1308,21 +1415,24 @@ Underfull \hbox (badness 1400) in paragraph at lines 279--279
 \tf@loe=\write7
 \openout7 = `main.loe'.
 
- (./main.bbl [35
+
+No file main.bbl.
+(./data/ack.tex [35
 
 
 ] [36
-
-
-] [37]) (./data/ack.tex [38] [39
 
 
 ])
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
+
+
+Package natbib Warning: There were undefined citations.
+
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
- [40
+[37
 
 
 ]
@@ -1331,19 +1441,19 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 79.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 79.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 67AF01A7C7E01A1AFD27EBAFDC396322.
+(rerunfilecheck)             Checksum: 3CD125F38615F5A7C30D9328C90719FD.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 35745 strings out of 492922
- 673250 string characters out of 6136750
- 893690 words of memory out of 5000000
- 39199 multiletter control sequences out of 15000+600000
- 539378 words of font info for 169 fonts, out of 8000000 for 9000
+ 35634 strings out of 492922
+ 670519 string characters out of 6136750
+ 891918 words of memory out of 5000000
+ 39091 multiletter control sequences out of 15000+600000
+ 539370 words of font info for 168 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  65i,17n,120p,2527b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (48 pages).
+Output written on main.pdf (45 pages).
