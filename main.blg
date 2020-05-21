@@ -5,48 +5,47 @@ The style file: thuthesis-numeric.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: ref/refs.bib
-Warning--I didn't find a database entry for "thuthesis"
 Warning--empty journal in article
 Warning--empty booktitle in Novak1990Optimal
-You've used 16 entries,
+You've used 32 entries,
             4107 wiz_defined-function locations,
-            964 strings with 9169 characters,
-and the built_in function-call counts, 81780 in all, are:
-= -- 1476
-> -- 9572
-< -- 12103
-+ -- 3406
-- -- 592
-* -- 561
-:= -- 11574
-add.period$ -- 47
-call.type$ -- 16
-change.case$ -- 30
-chr.to.int$ -- 3065
-cite$ -- 18
-duplicate$ -- 329
-empty$ -- 823
-format.name$ -- 258
-if$ -- 20821
+            1058 strings with 11972 characters,
+and the built_in function-call counts, 158014 in all, are:
+= -- 2781
+> -- 18428
+< -- 23452
++ -- 6594
+- -- 1021
+* -- 1075
+:= -- 22292
+add.period$ -- 95
+call.type$ -- 32
+change.case$ -- 60
+chr.to.int$ -- 5924
+cite$ -- 34
+duplicate$ -- 661
+empty$ -- 1643
+format.name$ -- 495
+if$ -- 40378
 int.to.chr$ -- 1
-int.to.str$ -- 17
+int.to.str$ -- 33
 missing$ -- 0
-newline$ -- 89
-num.names$ -- 48
-pop$ -- 3868
+newline$ -- 173
+num.names$ -- 96
+pop$ -- 7608
 preamble$ -- 1
-purify$ -- 16
+purify$ -- 32
 quote$ -- 0
-skip$ -- 8295
+skip$ -- 16034
 stack$ -- 0
-substring$ -- 3896
-swap$ -- 46
-text.length$ -- 161
+substring$ -- 7391
+swap$ -- 89
+text.length$ -- 315
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 200
+type$ -- 388
 warning$ -- 2
-while$ -- 213
+while$ -- 417
 width$ -- 0
-write$ -- 236
-(There were 3 warnings)
+write$ -- 469
+(There were 2 warnings)

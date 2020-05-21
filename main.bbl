@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{32}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{#1}
 \expandafter\ifx\csname urlstyle\endcsname\relax\relax\else
@@ -21,6 +21,20 @@ Moreira~A, Prats-Iraola~P, Younis~M, et~al.
 李德仁, 童庆禧, 李荣兴, 等.
 \newblock 高分辨率对地观测的若干前沿科学问题\allowbreak[J].
 \newblock 中国科学:地球科学, 2012\penalty0 (6):\penalty0 15-23.
+
+\bibitem[Jin et~al.(2012)Jin and Ko]{Jin2012GPU}
+Jin~X, Ko~S~B.
+\newblock Gpu-based parallel implementation of sar
+  imaging\allowbreak[C]//\allowbreak
+Electronic System Design (ISED), 2012 International Symposium on.
+\newblock 2012.
+
+\bibitem[Liu et~al.(2009)Liu, Wang, Liu, and Yu]{Liu2009An}
+Liu~B, Wang~K, Liu~X, et~al.
+\newblock An efficient sar processor based on gpu via
+  cuda\allowbreak[C]//\allowbreak
+International Congress on Image \& Signal Processing.
+\newblock 2009.
 
 \bibitem[Crisp(2004)]{article}
 Crisp~D.
@@ -98,6 +112,25 @@ Lee~J~S, Schuler~D~L, Lang~R~H, et~al.
 International Geoscience \& Remote Sensing Symposium.
 \newblock 1994.
 
+\bibitem[Freitas et~al.(2005)Freitas, Frery, and Correia]{Freitas2005The}
+Freitas~C~C, Frery~A~C, Correia~A~H.
+\newblock The polarimetric g distribution for sar data analysis\allowbreak[J].
+\newblock Environmetrics, 2005, 16\penalty0 (1):\penalty0 13-31.
+
+\bibitem[Bombrun et~al.(2008)Bombrun and Beaulieu]{Bombrun2008Segmentation}
+Bombrun~L, Beaulieu~J~M.
+\newblock Segmentation of polarimetric sar data based on the fisher
+  distribution for texture modeling\allowbreak[C]//\allowbreak
+Geoscience and Remote Sensing Symposium, 2008. IGARSS 2008. IEEE International.
+\newblock 2008.
+
+\bibitem[Song et~al.(2017)Song, Xu, and Jian]{Song2017Ship}
+Song~S, Xu~B, Jian~Y.
+\newblock Ship detection in polarimetric sar images via variational bayesian
+  inference\allowbreak[J].
+\newblock IEEE Journal of Selected Topics in Applied Earth Observations \&
+  Remote Sensing, 2017, PP\penalty0 (99):\penalty0 1-11.
+
 \bibitem[{Freeman} et~al.(1998){Freeman} and {Durden}]{673687}
 {Freeman}~A, {Durden}~S~L.
 \newblock A three-component scattering model for polarimetric sar
@@ -111,5 +144,77 @@ Tao~Z, Zhen~Y, Xiong~H.
   matrix\allowbreak[J].
 \newblock IEEE Journal of Selected Topics in Applied Earth Observations \&
   Remote Sensing, 2017, 10\penalty0 (7):\penalty0 3348-3359.
+
+\bibitem[徐丰\ 等(2017)徐丰, 王海鹏, and
+  金亚秋]{徐丰2017深度学习在}
+徐丰, 王海鹏, 金亚秋.
+\newblock
+  深度学习在SAR目标识别与地物分类中的应用\allowbreak[J].
+\newblock 雷达学报, 2017\penalty0 (2).
+
+\bibitem[Novak et~al.(1989)Novak and Burl]{Novak1989Optimal}
+Novak~L~M, Burl~M~C.
+\newblock Optimal speckle reduction in pol-sar imagery and its effect on target
+  detection\allowbreak[J].
+\newblock Proceedings of Spie the International Society for Optical
+  Engineering, 1989, 1101.
+
+\bibitem[Lee(1986)]{J1986Speckle}
+Lee~J~S.
+\newblock Speckle suppression and analysis for synthetic aperture radar
+  images\allowbreak[J].
+\newblock Optical Engineering, 1986, 25\penalty0 (5):\penalty0 636-643.
+
+\bibitem[{Blacknell}(2000)]{838811}
+{Blacknell}~D.
+\newblock Target detection in correlated sar clutter\allowbreak[J].
+\newblock IEE Proceedings - Radar, Sonar and Navigation, 2000, 147\penalty0
+  (1):\penalty0 9-16.
+
+\bibitem[{Cui} et~al.(2011){Cui}, {Yang}, and {Yamaguchi}]{6087012}
+{Cui}~Y, {Yang}~J, {Yamaguchi}~Y.
+\newblock Cfar ship detection in sar images based on lognormal mixture
+  models\allowbreak[C]//\allowbreak
+2011 3rd International Asia-Pacific Conference on Synthetic Aperture Radar
+  (APSAR).
+\newblock 2011: 1-3.
+
+\bibitem[Lee et~al.(2009)Lee and Pottier]{book}
+Lee~J~S, Pottier~E.
+\newblock Polarimetric radar imaging : From basics to
+  applications.\allowbreak[M].
+\newblock 2009.
+
+\bibitem[Zhang et~al.(2018)Zhang, Ji, Li, Yu, and Xiong]{Zhang2018Ship}
+Zhang~T, Ji~J, Li~X, et~al.
+\newblock Ship detection from polsar imagery using the complete polarimetric
+  covariance difference matrix\allowbreak[J].
+\newblock IEEE Transactions on Geoscience \& Remote Sensing, 2018, 57\penalty0
+  (5):\penalty0 2824-2839.
+
+\bibitem[Liu et~al.(2010)Liu, Huang, Wang, and Xiao]{Liu2010Statistical}
+Liu~T, Huang~G~M, Wang~X~S, et~al.
+\newblock Statistical assessment of h/a target decomposition theorems in radar
+  polarimetry\allowbreak[J].
+\newblock Science in China, 2010\penalty0 (2):\penalty0 355-366.
+
+\bibitem[Lan et~al.(2017)Lan, Zhou, and Yuan]{Lan2017Quaternionic}
+Lan~R, Zhou~Y, Yuan~Y~T.
+\newblock Quaternionic weber local descriptor of color images\allowbreak[M].
+\newblock IEEE Press, 2017.
+
+\bibitem[张程\ 等(2018)张程, 张红, and 王超]{张程2018基于}
+张程, 张红, 王超.
+\newblock
+  基于PCDM香农熵的全极化SAR图像船舶目标检测方法\allowbreak[J].
+\newblock 遥感技术与应用, 2018, v.33；No.161\penalty0 (03):\penalty0
+  125-133.
+
+\bibitem[Durden et~al.(1990)Durden, Zyl, and Zebker]{Durden1990The}
+Durden~S~L, Zyl~J~J~V, Zebker~H~A.
+\newblock The unpolarized component in polarimetric radar observations of
+  forested areas\allowbreak[J].
+\newblock Geoscience \& Remote Sensing IEEE Transactions on, 1990, 28\penalty0
+  (2):\penalty0 268-271.
 
 \end{thebibliography}

@@ -13,7 +13,7 @@
 滤波器的CFAR方法可以有效鉴别海上舰船目标。
 
 \section{海杂波统计特性}
-    此节采用复高斯模型来描述海杂波的数学统计特性，包含三个通道的极化散射矢量描述如下
+    此章采用复高斯模型来描述海杂波的数学统计特性，包含三个通道的极化散射矢量描述如下
     \begin{equation}
       {\bf{X}}{\rm{ = }}\left[ {\begin{array}{*{20}{c}}
         {{{\bf{S}}_{hh}}} \\
@@ -25,8 +25,8 @@
     \begin{equation}
         f({\bf{X}}) = \frac{1}{{{\Pi ^3}\left| {{\Sigma _c}} \right|}}\exp ( - {{\bf{X}}^H}\Sigma _c^{ - 1}{\bf{X}})
     \end{equation}
-    其中${{\Sigma _c}}=E({\bf{X}}{{\bf{X}}^H})$是极化散射矢量的协方差，$H$代表共轭转置，${\rm{E}}( \cdot )$代表求期望。通常假设海杂波
-    散射矢量具有零均值即$E({\bf{X}})=0$，当同极化矢量$ {{{\bf{S}}_{hh}}}$与交叉极化矢量${{{\bf{S}}_{hv}}}$间存在耦合时，海杂波极化协方差
+    其中${{\Sigma _c}}=E({\bf{X}}{{\bf{X}}^H})$是极化散射矢量的协方差矩阵，$H$代表共轭转置，${\rm{E}}( \cdot )$代表求期望。通常假设海杂波
+    散射矢量的均值为零即$E({\bf{X}})=0$，当同极化矢量$ {{{\bf{S}}_{hh}}}$与交叉极化矢量${{{\bf{S}}_{hv}}}$间存在耦合时，海杂波散射矢量的极化协方差矩阵
     可以描述为以下的形式：
     \begin{equation}
         {\Sigma _c} = {\sigma _{hh}}\left[ {\begin{matrix}
@@ -35,9 +35,10 @@
    {{\rho ^*}\sqrt \gamma  } & 0 & \gamma   \\ 
    \end{matrix}} \right]
     \end{equation}
-    在上式中$*$代表共轭转置
+    在上式中$*$代表共轭转置，符号变量的定义如\ref{equ:chap3:covdef}所示。
 
     \begin{equation}
+        \label{equ:chap3:covdef}
         \begin{array}{l}
         {\sigma _{hh}} = E({\left| {S_{hh}} \right|^2})\\
         \varepsilon  = \frac{{E({{\left| {S_{hv}} \right|}^2})}}{{E({{\left| {S_{hh}} \right|}^2})}}\\
@@ -48,24 +49,24 @@
 
 \section{极化白化滤波器}
     利用HH，HV，VV三个通道的极化信息构建最优图像，采用重构图像的标准差$s$与均值$m$之比进行斑点噪声的度量。下面将
-    证明极化白化滤波器可以使得标准差与均值的比值达到最小。
+    证明极化白化滤波器可以使得重构图像的标准差与均值的比值达到最小。
 
     \begin{equation}
         \label{equ:chap3:measure}
         \frac{s}{m} = \frac{{\sigma (y)}}{{E(y)}}
     \end{equation}
 
-    上式中随机变量$y$代表重构的图像像素，当给定SAR图像HH、HV、VV通道极化信息后，通过下式来重建斑点
+    式\ref{equ:chap3:measure}中随机变量$y$代表重构图像的像素值，当给定SAR图像HH、HV、VV通道极化信息后，通过式\ref{equ:chap3:construct}来重建斑点
     抑制图像
 
     \begin{equation}
         \label{equ:chap3:construct}
         y = {{\bf{X}}^H}A{\bf{X}}
     \end{equation}
-    在式\ref{equ:chap3:construct}中，权重矩阵A为厄米共轭且正定，为了找到最优权重矩阵$A^*$，将式
-    \ref{equ:chap3:measure}做如下变换，式\ref{equ:chap3:trans}中，$\lambda_1, \lambda_2, \lambda_3$为
+    在式\ref{equ:chap3:construct}中，权重矩阵A厄米共轭且正定，为了计算得到最优权重矩阵$A^*$，将式
+    \ref{equ:chap3:measure}做式\ref{equ:chap3:trans}所示变换。式\ref{equ:chap3:trans}中，$\lambda_1, \lambda_2, \lambda_3$为
     矩阵${\Sigma _c}A$的特征值，因此寻找最优权重矩阵的问题被转化为寻找特征值$\lambda_1, \lambda_2, \lambda_3$
-    使得$s/m$比值达到最小。显然当矩阵$\Sigma_cA$为单位阵特征值$\lambda_1=\lambda_2=\lambda_3$时，该比值达到最小。
+    使得$s/m$比值达到最小。显然当矩阵$\Sigma_cA$为单位阵、特征值$\lambda_1=\lambda_2=\lambda_3$时，该比值达到最小。
     因此$A^*$=$\Sigma_c^{-1}$被称作极化白化滤波器。
 
 
@@ -78,7 +79,7 @@
         \end{array}
     \end{equation}
 
-    获得极化白化滤波器后，通过式\ref{equ:chap3:recon}得到最小化相干斑重构图像。从式\ref{equ:chap3:recon}
+    获得极化白化滤波器后，通过式\ref{equ:chap3:recon}计算相干斑抑制的重构图像。从式\ref{equ:chap3:recon}
     可以看出相干斑抑制图像是对${{{\left| {{S_{hh}}} \right|}^2}}$,${{{\left| {{S_{hv}}} \right|}^2}}$,
     ${{{\left| {{S_{vv}}} \right|}^2}}$三个通道进行优化权重求和得到的强度图像。相较于单极化强度图像，极化白化
     滤波器提供了$4.8dB$的相干斑噪声抑制。
