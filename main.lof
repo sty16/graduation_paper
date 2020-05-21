@@ -1,8 +1,7 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces CPU和GPU浮点运算比较\relax }}{2}{figure.caption.10}% 
-\contentsline {figure}{\numberline {1.2}{\ignorespaces 论文内容安排\relax }}{4}{figure.caption.11}% 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces HH,SPAN与APWF强度图像\relax }}{9}{figure.caption.13}% 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces CUDA执行流程\relax }}{11}{figure.caption.15}% 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces PWF图像检测结果\relax }}{12}{figure.caption.16}% 
+\contentsline {figure}{\numberline {1.2}{\ignorespaces 论文内容安排\relax }}{5}{figure.caption.11}% 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces CUDA执行流程\relax }}{10}{figure.caption.14}% 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces PWF图像检测结果\relax }}{12}{figure.caption.16}% 
 \contentsline {figure}{\numberline {3.1}{\ignorespaces CFAR滑动窗示意图\relax }}{16}{figure.caption.19}% 
 \contentsline {figure}{\numberline {3.2}{\ignorespaces CUDA内存模型\relax }}{18}{figure.caption.21}% 
 \contentsline {figure}{\numberline {3.3}{\ignorespaces CUDA线程与检测像素映射关系\relax }}{19}{figure.caption.22}% 

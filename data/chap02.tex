@@ -106,26 +106,14 @@
     \end{minipage}
 \end{table}
 
-  不同强度图像如图\ref{fig:chap3:intensity}所示，从图像结果中可以看到，SPAN强度图像与
-  APWF强度图像对相干斑都有抑制效果，并且增强了船-海之间的对比对，可以对重构强度图像进行统计
-  分析来进一步实施舰船检测。
-  \begin{figure}[h]
-    \centering
-    \subcaptionbox{HH强度图\label{fig:subfig1}}[0.33\textwidth]
-      {\includegraphics[width=0.33\textwidth]{HH.pdf}}%
-    \subcaptionbox{SPAN强度图\label{fig:subfig2}}
-        {\includegraphics[width=0.33\textwidth]{SPAN.pdf}}
-    \subcaptionbox{APWF强度图\label{fig:subfig2}}
-        {\includegraphics[width=0.33\textwidth]{SPAN.pdf}}
-    \caption{HH,SPAN与APWF强度图像}
-    \label{fig:chap3:intensity}
-  \end{figure}
+  从不同强度图像结果中可以看到，SPAN强度图像与APWF强度图像对相干斑都有抑制效果，并且增强了船-海之间的对比对，可以对重构强度图像进行统计
+  分析来进一步实施舰船检测~\cite{Novak1989Optimal}。
 
-\section{自适应PWF舰船检测算法}
+ \section{自适应PWF舰船检测算法}
 不同天气条件下的海况不同，因此在SAR图像不同区域的杂波表现差别也很大，为了让算法具有更好的普适性，
 采用自适应极化白化滤波器(Adaptive PWF)舰船检测方法。在本章前三节描述了当海杂波散射矢量满足复高斯分布时，
-可以采用滑动窗选择局部海杂波散射矢量计算极化白化滤波器参数，并使用该滤波器生成相干斑抑制图像，在文献
-[3]中表明，使用自适应极化白化滤波器生成的重构强度图像值满足如下分布：
+可以采用滑动窗选择局部海杂波散射矢量计算极化白化滤波器参数，并使用该滤波器生成相干斑抑制图像，在文献~\cite{J1986Speckle}
+中表明，使用自适应极化白化滤波器生成的重构强度图像值满足如下分布：
 
 \begin{equation}
   \label{equ:chap3:pdf}
@@ -172,7 +160,7 @@
 
 \subsection{GPU算法设计与优化}
  对于APWF舰船检测方法，不同像素对应的自适应极化白化滤波器参数计算过程完全相同，只是通过滑动窗
- 选取的海杂波数据不同，因此我们将可并行且计算密集的滤波器参数计算部分放到GPU上去执行。在GPU编程模型中
+ 选取的海杂波数据不同，因此我们将可并行且计算密集的滤波器参数计算部分放到GPU上去执行如算法\ref{alg:chap3:APWFCUDA}所示。在GPU编程模型中
  ，线程有两个并行的层次分别是网格层次和线程块层次，一个线程块中的线程会作为一个整体被调度到流多处理器上
  去执行。为充分利用GPU硬件资源，将线程块大小设计为32x32即每个线程块中包含1024个线程，网格大小设计为16x16。
  实验中使用的图像大小为1000x1000，故让一个线程块中共1024个线程对应处理SAR图像一行的数据，每个线程通过自身的
@@ -190,6 +178,23 @@
     \label{fig:chap3:kernel}
   \end{figure}
 
+\begin{algorithm}[t]
+  \caption{并行PWF方法CUDA简化执行流程代码}
+  \label{alg:chap3:APWFCUDA}
+
+  cudaSetDevice();\\cudaMemcpy2D(imgGPU, pitch imgCPU, pitch, size, n cudaMemcptHostToDEvice);
+
+  cudaStreamCreate(Stream1)
+
+  fPWF<<<grid,block,0,stream1>>>(parameters)
+
+  cudaDeviceSynchronize()
+
+  cudaMemcpy(resCPU,resGPU,size,cudaMemcpyDeviceToHost)
+
+  imshow(); Timeshow()
+
+ \end{algorithm}
  核函数的设计，在GPU上所有的线程按照单指令多线程的方式去执行。不同的线程在私有数据空间上去执行相同的指令。对于APWF
  方法，核函数数的主要任务是计算极化白化滤波器参数即海杂波散射矢量的协方差矩阵，协方差矩阵计算主要涉及一个3xN与一个Nx3
  的矩阵相乘，对于该矩阵乘法，采用了动态并行的方式进行了进一步的优化，从当前核函数中创建新的核函数来完并行完成矩阵乘法运算。
@@ -217,7 +222,7 @@
   \begin{figure}[h]
     \centering
     \subcaptionbox{SPAN图\label{fig:subfig2}}
-        {\includegraphics[width=5cm]{resultSPAN.png}}
+        {\includegraphics[width=5cm]{HHSPAN.png}}
     \subcaptionbox{PWF检测结果\label{fig:subfig2}}
         {\includegraphics[width=5cm]{resultPWF.png}}
     \caption{PWF图像检测结果}

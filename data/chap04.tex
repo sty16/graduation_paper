@@ -18,7 +18,7 @@
 \label{sec:chap4:sec2}
 \subsection{极化SAR散射表征与SPAN理论}
     通常散射矩阵被用来描述目标散射体的极化信息。在使用水平与垂直极化基的典型极化SAR系统中，复散射矩阵
-    定义为如下的形式,其中$S_{HH}$代表了水平发射水平接收的极化信息，当满足互易性的条件时，$S_{HV}=S_{VH}$此时复散射
+    定义为如下的形式~\cite{book},其中$S_{HH}$代表了水平发射水平接收的极化信息，当满足互易性的条件时，$S_{HV}=S_{VH}$此时复散射
     矩阵可用三维的复散射矢量$k$式\ref{equ:chap4:kvector}来表示。
 
     \begin{equation}
@@ -34,7 +34,7 @@
         k = [{S_{HH}},\sqrt 2 {S_{HV}},{S_{VV}}]
     \end{equation}
 
-    将散射矩阵进行变换可以得到更多散射体的极化信息，如式\ref{equ:chap4:cov}为散射矢量对应的3x3极化协防差矩阵。在该式
+    将散射矩阵进行变换可以得到更多散射体的极化信息，如式\ref{equ:chap4:cov}为散射矢量对应的3x3极化协防差矩阵~\cite{Zhang2018Ship}。在该式
     中$\left\langle {} \right\rangle$代表在空间域上求平均，$\left| {} \right|$代表幅度值，$H$代表共轭转置。
 
     \begin{equation}
@@ -47,7 +47,7 @@
     \end{equation}
 
     在极化协方差矩阵$C$中，将对角线元素之和定义为为后向散射总功率即SPAN，如式\ref{equ:chap4:span}所示。还可以对
-    极化协方差矩阵进行分解如式\ref{equ:chap4:decompose}所示，其中$\lambda_i$为极化协方差矩阵特征值，$v_i$为$\lambda_i$对应的
+    极化协方差矩阵进行分解如式\ref{equ:chap4:decompose}所示~\cite{Liu2010Statistical}，其中$\lambda_i$为极化协方差矩阵特征值，$v_i$为$\lambda_i$对应的
     特征向量。
     \begin{equation}
         \label{equ:chap4:span}
@@ -72,12 +72,12 @@
         \end{array}} \right.
     \end{equation}
 
-    类比光学图像中的LBP特征，在极化SAR图像中，采用极化协方差矩阵来描述图像的极化信息。在光学图像中像素的灰度值
+    类比光学图像中的LBP特征~\cite{Lan2017Quaternionic}，在极化SAR图像中，采用极化协方差矩阵来描述图像的极化信息。在光学图像中像素的灰度值
     可以通过R、G和B三个通道进行计算得到，而极化协防差矩阵也包含了极化SAR图像的HH、HV和VV通道的信息，但区别是灰度值
     只含有图像的一个特征，而极化协防差矩阵包含了九个极化特征，因此对此模型改进引入极化协方差差异矩阵(PCDM)
 
     定义${C^{(x,y)}}$为极化SAR图像索引为$x,y$像素处的极化协防差矩阵，接下来计算其3x3邻域上的协方差累积差异$P^{(x,y)}$，
-    称$P^{(x,y)}$为极化SAR图像$x,y$处的极化协方差差异矩阵，如式\ref{equ:chap4:PCDM}所示,其中$C_{m,n}^{(i,j)}$为
+    称$P^{(x,y)}$为极化SAR图像$x,y$处的极化协方差差异矩阵~\cite{张程2018基于}，如式\ref{equ:chap4:PCDM}所示,其中$C_{m,n}^{(i,j)}$为
     图像索引$i,j$处协方差矩阵的第$(m,n)$个元素。
 
     \begin{equation}
@@ -100,7 +100,7 @@
 
       对PCDM矩阵应用SPAN检测器后输出初步检测结果，为了提升检测的精度，我们进一步提取极化
       协方差差异矩阵的极化特征来区分舰船目标与背景杂波。通常SAR图像目标散射特性可以用极化特征来描述，例如
-      极化分解，极化反对称性等极化特征。在文献\ref{}中提出了pedestal height特征来描述目标的散射特性,
+      极化分解，极化反对称性等极化特征。在文献~\cite{Durden1990The}中提出了pedestal height特征来描述目标的散射特性,
       该极化特征实质上等价于极化协方差矩阵最小特征值与最大特征值的比值。实验表明低海况的背景杂波与方位向模糊像素的
       pedestal height极化特征值比真实的舰船像素要低很多。
        \begin{equation}
