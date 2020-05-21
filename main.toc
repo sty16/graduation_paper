@@ -21,7 +21,7 @@
 \contentsline {section}{\numberline {3.4}应用LMM模型进行CFAR舰船检测}{16}{section.3.4}% 
 \contentsline {section}{\numberline {3.5}GPU算法优化}{17}{section.3.5}% 
 \contentsline {section}{\numberline {3.6}LMM实验结果}{19}{section.3.6}% 
-\contentsline {section}{\numberline {3.7}小结}{21}{section.3.7}% 
+\contentsline {section}{\numberline {3.7}小结}{20}{section.3.7}% 
 \contentsline {chapter}{\numberline {第4章}基于PCDM的极化SAR图像舰船目标检测}{22}{chapter.4}% 
 \contentsline {section}{\numberline {4.1}引言}{22}{section.4.1}% 
 \contentsline {section}{\numberline {4.2}PCDM理论背景}{22}{section.4.2}% 

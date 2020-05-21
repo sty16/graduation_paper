@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  21 MAY 2020 12:33
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  21 MAY 2020 15:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1222,14 +1222,16 @@ Underfull \hbox (badness 1400) in paragraph at lines 243--243
 [14
 
 ]
+Missing character: There is no ， in font [XITSMath-Regular.otf]/OT:script=math;language=DFLT;+ss08;!
 File: figures/slide.png Graphic file (type bmp)
 <figures/slide.png>
- [15] [16] [17]
+ [15] [16]
 File: figures/memory.png Graphic file (type bmp)
 <figures/memory.png>
- [18]
+ [17]
 File: figures/map.jpg Graphic file (type bmp)
 <figures/map.jpg>
+ [18]
 File: figures/HongKong1.png Graphic file (type bmp)
 <figures/HongKong1.png>
 File: figures/HongKong2.png Graphic file (type bmp)
@@ -1364,7 +1366,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  35768 strings out of 492922
  674249 string characters out of 6136750
- 894585 words of memory out of 5000000
+ 894590 words of memory out of 5000000
  39217 multiletter control sequences out of 15000+600000
  539378 words of font info for 169 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
