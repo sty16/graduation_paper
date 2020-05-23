@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  23 MAY 2020 19:42
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  23 MAY 2020 23:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1411,26 +1411,71 @@ Underfull \hbox (badness 1400) in paragraph at lines 279--279
  [34
 
 
-] (./main.loe)
+] (./main.loe [35
+
+
+])
 \tf@loe=\write7
 \openout7 = `main.loe'.
 
 
 No file main.bbl.
-(./data/ack.tex [35
+(./data/ack.tex [36] [37
 
 
-] [36
-
-
-]) (./data/appendix01.tex [37
+]) (./data/appendix01.tex [38
 
 
 ]
 附录 A
-[38
+[39
 
-] [39])
+] [40]
+Overfull \hbox (13.01186pt too wide) detected at line 60
+[][]
+ []
+
+[41]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 100.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 100.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 114.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 114.
+
+)
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
+ [42]
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
+ [43]
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 2>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 2>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 2>
+ [44]
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
@@ -1439,9 +1484,8 @@ No file main.bbl.
 Package natbib Warning: There were undefined citations.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 79.
-[40]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 79.
- (./main.aux)
+(./main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 79.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 79.
 
@@ -1451,19 +1495,19 @@ Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 2603A6F7A918538038090D7E438DB013
-(rerunfilecheck)             After:  E03EC114B2E50621818B447CDE0BB48D.
+(rerunfilecheck)             Before: 7BB7CE85E5D605049EB274B63897BBE4
+(rerunfilecheck)             After:  128F0D40F66AF7DEDBACD2510D3552B3.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 35668 strings out of 492922
- 672522 string characters out of 6136750
- 892802 words of memory out of 5000000
- 39122 multiletter control sequences out of 15000+600000
+ 35684 strings out of 492922
+ 672949 string characters out of 6136750
+ 893412 words of memory out of 5000000
+ 39136 multiletter control sequences out of 15000+600000
  539370 words of font info for 168 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 65i,17n,120p,2527b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 65i,18n,120p,2527b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (48 pages).
+Output written on main.pdf (52 pages).

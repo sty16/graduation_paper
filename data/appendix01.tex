@@ -4,9 +4,9 @@
 \title{基于变分贝叶斯推断的极化SAR舰船检测}
 
 {\heiti 摘要：在本文中，我们创新的提出了一种基于变分贝叶斯推断的极化SAR图像舰船检测方法。首先我们将极化SAR图像
-表示为一个向量，并且将SAR图像分解为与舰船有关的稀疏分量和海杂波分量的总和。这些成分由一些潜在变量表示。之后我们介绍了
+表示为一个张量，并且将SAR图像分解为与舰船有关的稀疏分量和海杂波分量的总和。这些成分由一些潜在变量表示。之后我们介绍了
 潜在变量的层次先验并建立了舰船检测的概率模型。通过变分贝叶斯推断的方法，我们计算得到潜变量的后验分布。最后在迭代贝叶斯推断
-过程中获得舰船检测结果。本文提出的方法采用向量的形式表示极化SAR图像，显式的使用了SAR图像所有通道的极化信息从而避免了采用标量极化特征
+过程中获得舰船检测结果。本文提出的方法采用张量的形式表示极化SAR图像，显式的使用了SAR图像所有通道的极化信息从而避免了采用标量极化特征
 表示可能导致的信息丢失。此外本文提出的方法不需要使用滑动窗，变分贝叶斯推断过程实际上使用了所有的像素而不是滑动窗内有限的像素，
 因此该方法具有良好的舰船检测性能和目标形状保持能力，适用于拥挤海域的舰船检测。本次实验采用了C波段radarsat-2极化SAR数据，实验结果表明方法可以
 实现最先进的舰船检测性能。}
@@ -36,7 +36,7 @@ Touzi使用极化度(Dop)和最小极化度的偏移来改善船海对比度。�
 检测中，我们去除了低秩约束的限制仅利用了舰船的稀疏特性并采用了变分贝叶斯推断的方法用于SAR图像舰船检测，该方法实现了最先进的舰船检测性能。为了进一步处理多通道
 SAR图像舰船检测并充分利用极化信息，在IEEE IGARSS 2016中我们提出将极化SAR图像与变分贝叶斯推断相结合。在本文中我们将提供有关该方法的更多详细信息，并
 将其与最新的舰船检测方法进行比较以证明其有效性。因此本文是第一个正式致力于使用变分贝叶斯推断进行极化SAR图像舰船检测的工作。首先我们将多通道的极化SAR图像表示为
-向量，并介绍了与之相关的多维变量的先验分布。因此我们没有应用极化信息融合而是提出了一个应用变分贝叶斯推断进行极化SAR图像舰船检测的通用框架。
+张量，并介绍了与之相关的多维变量的先验分布。因此我们没有应用极化信息融合而是提出了一个应用变分贝叶斯推断进行极化SAR图像舰船检测的通用框架。
 其次我们进一步改善了舰船检测的概率模型，减少了隐变量的个数，简化了变分贝叶斯推断的过程。
 
 本文的其余部分安排如下。第二章介绍了极化SAR图像中舰船检测的精准概率模型。第三节详细介绍了将变分贝叶斯推断应用于舰船检测。
@@ -45,7 +45,73 @@ SAR图像舰船检测并充分利用极化信息，在IEEE IGARSS 2016中我们�
 \section{极化SAR图像概率模型}
 此前我们提出了单通道SAR图像的舰船检测概率模型。在本文中，我们将此基本模型扩展到极化SAR图像。我们将极化SAR图像定义为张量进而完善了此前提出的原始概率模型并引入适用的多元隐变量先验分布。
 \subsection{极化SAR图像的表示}
+对于单极化SAR图像，像素值由图像强度定义。对于全极化单视复图像，像素的复散射矢量在非互易的条件下定义如\ref{equ:append:repre}
+所示。
+\begin{equation}
+    \label{equ:append:repre}
+    \begin{array}{*{20}{c}}
+    {{\bf{w}} = {{\left[ {\begin{array}{*{20}{c}}
+    {{S_{HH}}}&{{S_{HV}}}&{{S_{VH}}}&{{S_{VV}}}
+    \end{array}} \right]}^T}}&{{\rm{linear\ basis}}}\\
+    {{\bf{w}} = \frac{1}{{\sqrt 2 }}\left[ {\begin{array}{*{20}{c}}
+    {{S_{HH}} + {S_{VV}}}&{{S_{HH}} - {S_{VV}}}&{{S_{HV}} + {S_{VH}}}&{j({S_{HV}} - {S_{VH}})}
+    \end{array}} \right]}&{{\rm{Pauli\ basis}}}
+    \end{array}
+\end{equation}
 
+其中$S_{HH}$,$S_{HV}$,$S_{VH}$,$S_{VV}$定义了水平-垂直基下的散射矩阵元素。上标T为转置。在满足互易的情形下如式\ref{equ:append:reciprocal}所示
+\begin{equation}
+    \label{equ:append:reciprocal}
+    \begin{array}{*{20}{c}}
+    {{\bf{w}} = {{\left[ {\begin{array}{*{20}{c}}
+    {{S_{HH}}}&{\sqrt 2 {S_{HV}}}&{{S_{VV}}}
+    \end{array}} \right]}^T}}&{{\rm{linear basis}}}\\
+    {{\bf{w}} = \frac{1}{{\sqrt 2 }}\left[ {\begin{array}{*{20}{c}}
+    {{S_{HH}} + {S_{VV}}}&{{S_{HH}} - {S_{VV}}}&{2{S_{HV}}}
+    \end{array}} \right]}&{{\rm{Pauli basis}}}
+    \end{array}
+\end{equation}
+
+在这里，我们进一步将复散射矢量$\bf{w}$表示为实向量$\bf{d}$的形式，如式\ref{equ:append:realvector}所示。其中$d$为三或四对应互易或者非互易的情形。
+\begin{equation}
+    \label{equ:append:realvector}
+   {\bf{d}} = \left[ {{\mathop{\rm Re}\nolimits} ({{\bf{w}}_{\bf{1}}}){\mathop{\rm Im}\nolimits} ({{\bf{w}}_{\bf{1}}}) \ldots {\mathop{\rm Re}\nolimits} ({{\bf{w}}_d}){\mathop{\rm Im}\nolimits} ({{\bf{w}}_d})} \right] 
+\end{equation}
+
+在SAR图像中，海杂波像素值是随机变化的，舰船显示为稀疏分布的目标像素具有显著的稀疏特征。因此使用张量术语我们可以将舰船
+检测视为从海杂波中恢复稀疏信号的问题，其中采用张量表示的极化SAR图像可以被建模为
+\begin{equation}
+    \label{equ:append:construct}
+    {\bf{D = A*S + C}}
+\end{equation}
+
+${\bf{D}} \in {\mathbb{R}^{m \times n \times 2d}}{\bf{A*S}} \in {\mathbb{R}^{m \times n \times 2d}}{\bf{C}} \in {\mathbb{R}^{m \times n \times 2d}}$分别代表SAR图像，严格稀疏的舰船成分，海杂波成分。
+Tube fiber定义为有固定行列索引的实向量如式\ref{equ:append:realvector}的形式。${\bf{A}} \in {\mathbb{R}^{m \times n \times 2d}}$的所有正面切片均为相同的二进制数值矩阵${\bf{A}}{\rm{ = }}\left[ {{{\rm{a}}_{ij}}} \right] \in {\mathbb{R}^{m \times n}}$
+其中第$(i,j)$个元素$a_{ij}=1$表示该像素为舰船像素。故将矩阵$\bf{A}$视为舰船检测结果。${\bf{S}} \in {\mathbb{R}^{m \times n \times 2{\rm{d}}}}$是非严格稀疏的舰船分量矩阵，$*$表示哈达玛积。在这我们定义$d_{ij:},s_{ij:},c_{ij:}$为张量${\bf{D,S,C}}$的tube fiber。
+
+现在值得花一些时间去研究式\ref{equ:append:construct}的形式，因为它可以提供模型细化的一些观点。从式\ref{equ:append:construct}中我们可以看出当$a_{ij}=1$时，$d_{ij:}=s_{ij:}+c_{ij:}$。当$a_{ij}=0$时，$d_{ij:}=c_{ij:}$。因为舰船检测的目的是估计二进制潜变量$\bf{A}$
+而不是$\bf{S}$，因此当$a_{ij}=1$时，我们可以进一步约束$c_{ij:}=\bf{0}$，因此$\bf{S}$实际上是$\bf{D}$，式\ref{equ:append:construct}可以表示为
+\begin{equation}
+   \label{equ:append:refine}
+   {\bf{D = A*D + C}} 
+\end{equation}
+
+在本文中，我们使用这个改进的方法来表示SAR图像，并通过变分贝叶斯推断估计了隐变量$\bf{A}$与$\bf{C}$。相比于文献[21]中的分析，概率模型与变分贝叶斯推断的过程在本文中都进行了改进。为了提升模型对复杂场景中的稀疏舰船成分的检测能力，$a_{ij},c_{ij:}$的独立先验定义如下。
+\subsection{稀疏分量$\bf{A}$的先验分布}
+将二进制标记系数$a_{ij}$建模为相同的分布即
+    \begin{equation}
+        \label{equ:append:priora}
+        \begin{array}{*{20}{c}}
+        {{\rm{p}}({a_{ij}}|{e_{ij}}) = e_{ij}^{{a_{ij}}}{{(1 - {e_{ij}})}^{1 - {a_{ij}}}}}\\
+        {P({e_{ij}}) = Beta({\alpha _0},{\beta _0})}
+        \end{array}
+    \end{equation}
+
+其中$e_{ij}$代表了舰船像素的存在概率，$\alpha_0>0, \beta_0>0$为超参数。$\rm{Beta(\cdot)}$为Beta分布。
+因此$e_{ij}$的期望$E(e_{ij})$为$\frac{{{\alpha _0}}}{{{\alpha _0} + {\beta _0}}}$并且$E(a_{ij})$接近0。在这种情形下，稀疏条件加于
+$A$上。为了简化分析我们让${\alpha _0} \ll 0$并限制${\alpha _0}{\rm{ + }}{\beta _0} = 1$。需要注意的是$\alpha_0,\beta_0$并不依赖于其他参数并且他们被设置为确定性的值，下节的其他超参数也是如此。
+
+\subsection{海杂波$\bf{C}$的先验分布}
 \section{变分贝叶斯推断}
 \section{实验与结果}
 \section{结论}
