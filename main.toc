@@ -43,6 +43,6 @@
 \contentsline {subsection}{\numberline {A.2.1}极化SAR图像的表示}{41}{subsection.A.2.1}% 
 \contentsline {subsection}{\numberline {A.2.2}稀疏分量$\bf {A}$的先验分布}{42}{subsection.A.2.2}% 
 \contentsline {subsection}{\numberline {A.2.3}海杂波$\bf {C}$的先验分布}{42}{subsection.A.2.3}% 
-\contentsline {section}{\numberline {A.3}变分贝叶斯推断}{42}{section.A.3}% 
-\contentsline {section}{\numberline {A.4}实验与结果}{42}{section.A.4}% 
-\contentsline {section}{\numberline {A.5}结论}{42}{section.A.5}% 
+\contentsline {section}{\numberline {A.3}变分贝叶斯推断}{44}{section.A.3}% 
+\contentsline {section}{\numberline {A.4}实验与结果}{44}{section.A.4}% 
+\contentsline {section}{\numberline {A.5}结论}{44}{section.A.5}% 

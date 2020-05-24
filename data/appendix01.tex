@@ -112,6 +112,46 @@ Tube fiber定义为有固定行列索引的实向量如式\ref{equ:append:realve
 $A$上。为了简化分析我们让${\alpha _0} \ll 0$并限制${\alpha _0}{\rm{ + }}{\beta _0} = 1$。需要注意的是$\alpha_0,\beta_0$并不依赖于其他参数并且他们被设置为确定性的值，下节的其他超参数也是如此。
 
 \subsection{海杂波$\bf{C}$的先验分布}
+在一些强风或暴雨海域的场景中，整张图像海杂波的统计特性在空间上是变化的，因此海杂波的分布可能不再是单峰的。此外混合高斯分布可以
+近似估计一个连续的概率密度分布，因此为了更好的拟合海杂波分布，我们使用包含K个分量的混合多元高斯分布来对$c_{ij:}$进行建模。
+    \begin{equation}
+        \label{equ:append:clutter_distribution}
+        \begin{array}{*{20}{c}}
+        {{\rm{p}}({{\bf{c}}_{{\bf{ij:}}}}|{a_{ij}},{\bf{U,M,}}{{\bf{z}}_{{\bf{ij}}}}) = \prod\limits_{k = 1}^K {N{{({{\bf{d}}_{{\bf{ij:}}}} - {a_{ij}}{{\bf{d}}_{{\bf{ij:}}}}|{{\bf{u}}_{\bf{k}}}{\bf{,M}}_{{\bf{k::}}}^{{\bf{ - 1}}})}^{{z_{ijk}}}}} }\\
+        {p({{\bf{z}}_{{\bf{ij}}}}|\pi ) = \prod\limits_{k = 1}^K {\pi _k^{{z_{ijk}}}} }
+        \end{array}
+    \end{equation}
+
+其中$\bf{z_{ij}}$是与$c_{ij:}$相关的指示向量，满足${z_{ijk}} \in {\rm{\{ 0,1\} ,}}\sum\limits_{k = 1}^K {{z_{ijk}} = 1}$。
+$\pi  = ({\pi _1}, \ldots ,{\pi _K})$是混合高斯分布的权重系数向量，其中$\pi_k$代表第k个高斯成分的存在概率，$\pi$满足$0 \le {\pi _k} \le 1,\sum\limits_{k = 1}^K {{\pi _k} = 1}$。
+${\mathbf{U}} = \left[ {{{\mathbf{u}}_{\mathbf{1}}}, \ldots ,{{\mathbf{u}}_K}} \right] \in {\mathbb{R}^{2d \times K}}$，${\mathbf{M}} \in {\mathbb{R}^{K \times 2d \times 2d}}$的第k个水平切片
+为${{\mathbf{M}}_{k::}}$；${{\mathbf{u}}_k},{{\mathbf{M}}_{k::}}$为第k个高斯成分的均值与协方差矩阵。再次为了便于下面的描述，我们让$Z \in {\mathbb{R}^{m \times n \times K}}$表示张量，其中第$(i,j,k)$个元素
+用$z_{ijk}$来表示。
+
+参数${{\mathbf{u}}_k}$和${{\mathbf{M}}_{k::}}$由高斯-维夏特分布建模如式\ref{equ:append:gauss-wishart}所示，其中${{\mathbf{u}}_{0k}}$为均值向量
+${{\mathbf{M}}_{0k::}}$为协方差矩阵，${\phi _{0k}}$为自由度。$\beta_2$是超参数。这里我们定义${{\mathbf{U}}_0} = \left[ {{{\mathbf{u}}_{01}}, \ldots ,{{\mathbf{u}}_{0K}}} \right] \in {\mathbb{R}^{2d \times K}}$，
+${\phi _0} = \left[ {{\phi _{01}}, \ldots ,{\phi _{0K}}} \right] \in {\mathbb{R}^K}$，${{\mathbf{M}}_0} \in {\mathbb{R}^{K \times 2d \times 2d}}$为张量切片为${{\mathbf{M}}_{0k::}}$
+    \begin{equation}
+        \label{equ:append:gauss-wishart}
+        {\text{p}}({{\mathbf{u}}_k},{{\mathbf{M}}_{k::}}) = N({{\mathbf{u}}_k}|{{\mathbf{u}}_{0k}},\beta _2^{ - 1}{\mathbf{M}}_{k::}^{ - 1}) \cdot W({{\mathbf{M}}_{k::}}|{{\mathbf{M}}_{0k::}},{\phi _{0k}})
+    \end{equation}
+
+混合系数$\pi$由Dirichlet分布建模，如式\ref{equ:append:Dirichlet}所示，其中$\Gamma(\cdot)$为gamma函数，$\{ {\eta _{0k}}\} $为超参数。
+    \begin{equation}
+        \label{equ:append:Dirichlet}
+        {\text{p}}(\pi ) = \frac{{\Gamma ({{\hat \eta }_0})}}{{\Gamma ({\eta _0}) \ldots \Gamma ({\eta _K})}}\prod\limits_{k = 1}^K {{\pi _k}^{{\eta _{0k}} - 1},{{\hat \eta }_0}}  = \sum\limits_{k = 1}^K {{\eta _{0k}}}
+    \end{equation}
+
+基于上述假设，潜变量${\mathbf{A,E,U,M,Z}},\pi$与极化SAR图像数据$\mathbf{D}$的联合分布表示为：
+
+\begin{equation}
+    \begin{aligned}
+    {\rm{p}}({\bf{D}},{\bf{A,E,U,M,Z}},\pi ) &= \prod\limits_{i,j,k} {{\rm{p}}({{\bf{d}}_{ij:}}{\rm{|}}{{\rm{a}}_{ij}},{e_{ij}},{{\bf{u}}_k},{{\bf{M}}_{k::}},{z_{ijk}},{\pi _k}) \cdot {\rm{p}}({a_{ij}}|{e_{ij}}) \cdot {\rm{p}}} ({e_{ij}})\\
+    & \cdot p({{\bf{u}}_k},{{\bf{M}}_{k::}}) \cdot {\rm{p}}({z_{ijk}}|{\pi _k}) \cdot {\rm{p}}({\pi _k})
+   \end{aligned}
+   \label{equ:append:join}
+\end{equation}
+
 \section{变分贝叶斯推断}
 \section{实验与结果}
 \section{结论}
