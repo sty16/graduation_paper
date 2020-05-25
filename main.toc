@@ -44,5 +44,11 @@
 \contentsline {subsection}{\numberline {A.2.2}稀疏分量$\bf {A}$的先验分布}{42}{subsection.A.2.2}% 
 \contentsline {subsection}{\numberline {A.2.3}海杂波$\bf {C}$的先验分布}{42}{subsection.A.2.3}% 
 \contentsline {section}{\numberline {A.3}变分贝叶斯推断}{44}{section.A.3}% 
-\contentsline {section}{\numberline {A.4}实验与结果}{44}{section.A.4}% 
-\contentsline {section}{\numberline {A.5}结论}{44}{section.A.5}% 
+\contentsline {subsection}{\numberline {A.3.1}变分贝叶斯推断原理}{44}{subsection.A.3.1}% 
+\contentsline {subsection}{\numberline {A.3.2}变分贝叶斯推断在舰船检测中的应用}{45}{subsection.A.3.2}% 
+\contentsline {subsection}{\numberline {A.3.3}算法}{46}{subsection.A.3.3}% 
+\contentsline {section}{\numberline {A.4}实验与结果}{47}{section.A.4}% 
+\contentsline {subsection}{\numberline {A.4.1}参数设置}{48}{subsection.A.4.1}% 
+\contentsline {subsection}{\numberline {A.4.2}定义真值}{49}{subsection.A.4.2}% 
+\contentsline {subsection}{\numberline {A.4.3}检测结果}{49}{subsection.A.4.3}% 
+\contentsline {section}{\numberline {A.5}结论}{49}{section.A.5}% 
