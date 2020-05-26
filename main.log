@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  25 MAY 2020 22:53
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.27)  26 MAY 2020 12:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1464,7 +1464,44 @@ Underfull \hbox (badness 10000) in paragraph at lines 323--323
 [47]
 File: figures/appendSAR.jpg Graphic file (type bmp)
 <figures/appendSAR.jpg>
- [48])
+ [48]
+File: figures/appendSARHVVH.jpg Graphic file (type bmp)
+<figures/appendSARHVVH.jpg>
+ [49]
+
+LaTeX Warning: Reference `' on page 50 undefined on input line 398.
+
+File: figures/appendresult.jpg Graphic file (type bmp)
+<figures/appendresult.jpg>
+File: figures/appendr1result.jpg Graphic file (type bmp)
+<figures/appendr1result.jpg>
+[50]
+File: figures/appendr2result.jpg Graphic file (type bmp)
+<figures/appendr2result.jpg>
+ [51])
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
+ [52]
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 1>
+ [53]
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 2>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 2>
+File: figures/scan-record.pdf Graphic file (type pdf)
+<use figures/scan-record.pdf, page 2>
+ [54]
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
@@ -1473,20 +1510,13 @@ File: figures/appendSAR.jpg Graphic file (type bmp)
 Package natbib Warning: There were undefined citations.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 80.
-[49]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 80.
- (./main.aux)
+(./main.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 80.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 80.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: F26A0129A1A40DC38ADF95F67C30556A.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: E3111901C5A86B71BCF80C8EB4C0886B
-(rerunfilecheck)             After:  F26A0129A1A40DC38ADF95F67C30556A.
 
 LaTeX Warning: There were undefined references.
 
@@ -1495,12 +1525,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 35705 strings out of 492922
- 673297 string characters out of 6136750
- 895349 words of memory out of 5000000
- 39157 multiletter control sequences out of 15000+600000
+ 35737 strings out of 492922
+ 674175 string characters out of 6136750
+ 898862 words of memory out of 5000000
+ 39183 multiletter control sequences out of 15000+600000
  539378 words of font info for 169 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  65i,19n,120p,2527b,2766s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (57 pages).
+Output written on main.pdf (62 pages).

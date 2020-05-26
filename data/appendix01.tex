@@ -347,6 +347,95 @@ $\pi$的后验概率分布为：
 2)超参数设置：以非信息的方式设置算法\ref{alg:append:VBI}中的所有超参数，以减少他们对后验分布估计的影响。因此
 $\beta_1,\beta_2,{\eta_{0k}}$均被设置为$10^{-6}$。对于稀疏相关的超参数$\alpha_0$设置为$10^{-3}$，并设置$\beta_0=1-\alpha_0$。
 \subsection{定义真值}
+通常，从船舶自动识别系统AIS收集的数据用于最终确认舰船检测结果中虚警和漏报的船只。不幸的是我们没有与图\ref{fig:append:SARImage}相关的AIS数据。
+实际上，虚警的目标通常是由较强散射的方位向模糊导致的。尤其是对于海岸附近的海域，沿海岸分布的基础设施通常会产生虚警。为了获得不含歧义的真实值，我们采用了文献[28]提出的方法，原理是校准后的
+SLC图像HV与VH分量之间的相位差约为$\pi$，其幅值近似相等。因此我们可以简单的使用交叉极化SLC分量HV+VH的总和消除这种歧义。对于图\ref{fig:append:SARImage}中HV+VH强度图像如图\ref{fig:append:SARHVVHImage}所示。我们可以看到
+所有因方位向模糊导致的虚警目标都被消除了。此外我们进一步使用跨度和极化信息来帮助验证反向散射强度较弱的船舶。
+
+最终标有方框的船舶真值如图\ref{fig:append:SARImage}与图\ref{fig:append:SARHVVHImage}所示。对于新加坡海峡地区，有184艘确认的船只，长度约为25-360m。对于大连港海域
+有51艘船，长度约为35-270m。在每个图像中，船只真值被换分为大船组(B组)与小船组(S组)，分别用白框和黄框标记。船舶数量和相应长度列于表\ref{tab:append:SARImageGT}
+  \begin{figure}[H] % use float package if you want it here
+    \centering
+    \includegraphics[width=1\textwidth]{appendSARHVVH.jpg}
+    \caption{RADASAT-2${\left| {{\rm{HV}} + VH} \right|^2}$图像(a)新加坡海峡(b)大连港}
+    \label{fig:append:SARHVVHImage}
+  \end{figure}
+
+  \begin{table}[htb]
+  \centering
+    \begin{minipage}[t]{1\linewidth} % 如果想在表格中使用脚注，minipage是个不错的办法
+    \caption[船只真值]{船只真值}
+    \label{tab:append:SARImageGT}
+      \begin{tabularx}{\linewidth}{lXXX}
+        \toprule[1.5pt]
+        {\heiti 位置} & {\heiti 分组} & {\heiti 数量} &{长度(m)} \\ \midrule[1pt]
+        新加坡海峡 & group B & 94 & 约125-360\\
+        & group S & 90 & 约25-125\\ \midrule[1pt]
+        大连港 &  group B & 40 & 约25-125 \\
+        & group S & 11 & 约35-125\\
+        \bottomrule[1.5pt]
+      \end{tabularx}
+    \end{minipage}
+  \end{table}
 \subsection{检测结果}
+首先将遮罩应用于正在处理的图像，一种常见的陆地遮罩的方法是将SAR图像与现有的地图配准。在实验中我们手动遮盖了陆地区域。尽管这种人工
+遮罩的方法并不精确，但是它不会影响舰船检测性能评估。
+
+参考方法GP-PNF与ICS-GSD实际上是CFAR方法。在GP-PNF方法中，我们对杂波分布采用奈曼皮尔逊准则检验。GN-PNF的参数设置如下：
+RedR设置便于求解数值积分的值。在这里，对于新加坡海峡与大连港，RedR分别被设置为0.1和0.01。BoxCar滤波器的最小于最大窗口尺寸
+分别为$11\times 11$与$51 \times 51$。虚警率$p_{fa}$为$10^{-6}$。滑动窗的目标区域，保护区域和背景区域分别为$3\times 3$、$73\times 73$、
+$93\times 93$。ICS-GSD主要使用交叉极化通道而不是所有的极化通道。在我们实验中我们将ICS-GSD应用于HV极化图像。将基于Gamma分布的
+GSD用于初始检测器，然后使用迭代检测方法。GSD中虚警率设置为$10^{-8}$。此外由于海域交叉极化图像是匀质的，因此GSD无需使用滑动窗而是直接应用于
+整个SAR图像。
+
+为了定量评估检测性能，我们采用检测概率$P_d$与品质因数FoM。
+\begin{equation}
+    \label{equ:append:resultevaluate}
+    {P_d} = \frac{{{N_d}}}{{{N_g}}},FoM = \frac{{{N_d}}}{{{N_f} + {N_g}}}
+\end{equation}
+其中$N_g$为船只的真值数量，$N_f$为虚警船只数量，$N_d$为正确检测的船只数量。
+
+表\ref{tab:append:SARImageresult}和图\ref{fig:append:resultp}-图\ref{fig:append:resultr2}为使用本文方法与参考方法得到的舰船检测结果。在表\ref{}中，$N_d = N_d^B+ N_d^S$其中
+$N_d^B$与$N_d^S$定义了B组和S组中船只检测数量。需要注意的是大多数由方位向模糊引起的虚警已经通过HV+VH消除。
+  \begin{table}[htb]
+  \centering
+    \begin{minipage}[t]{1\linewidth} % 如果想在表格中使用脚注，minipage是个不错的办法
+    \caption[舰船检测结果]{舰船检测结果}
+    \label{tab:append:SARImageresult}
+      \begin{tabularx}{\linewidth}{lXXXXX}
+        \toprule[1.5pt]
+        {\heiti 位置} & {\heiti 方法} & {\heiti $(N_d^B,N_d^S)$} &{\heiti $(N_d,N_f)$} &{\heiti $P_d(\%)$} &{\heiti $FoM(\%)$}\\ \midrule[1pt]
+        & Proposed & (94,88) & (182,3) & 98.9 & 97.3\\
+        新加坡海峡 & GP-PNF & (94,73) & (167,6) & 90.8 & 87.9\\
+        & ICS-GSD & (94,80) & (174,3) & 94.6 & 93.0\\ \midrule[1pt]
+        & Proposed & (40,11) & (51,0) & 100 & 100\\
+        大连港& GP-PNF & (40,8) & (48,0) & 94.1 & 94.1\\
+        & ICS-GSD & (40,11) & (51,2) & 100& 96.2\\
+        \bottomrule[1.5pt]
+      \end{tabularx}
+    \end{minipage}
+  \end{table}
+1)比较检测结果的$P_d$与$FoM$，在图\ref{fig:append:resultp}所示的新加坡海峡区域，我们可以看到我们提出的方法可以检测到B组中所有94艘大船与S组90艘小船中的88艘，其中三艘为虚警。
+对于大连港区域，我们的方法可以检测出B组所有50艘大船与S中所有11艘小船，没有虚警船只，因此我们提出的方法对于新加坡海峡图像的$P_d$为$98.9\%$，FoM为$97.3\%$。
+对于大连港海域$P_d$与FoM均为$100\%$。
+
+  \begin{figure}[H] % use float package if you want it here
+    \centering
+    \includegraphics[width=1\textwidth]{appendresult.jpg}
+    \caption{本文提出方法检测结果(a)新加坡海峡(b)大连港}
+    \label{fig:append:resultp}
+  \end{figure}
+  \begin{figure}[H] % use float package if you want it here
+    \centering
+    \includegraphics[width=1\textwidth]{appendr1result.jpg}
+    \caption{GP-PNF检测结果(a)新加坡海峡(b)大连港}
+    \label{fig:append:resultr1}
+  \end{figure}
+  \begin{figure}[H] % use float package if you want it here
+    \centering
+    \includegraphics[width=1\textwidth]{appendr2result.jpg}
+    \caption{ICS-GSD检测结果(a)新加坡海峡(b)大连港}
+    \label{fig:append:resultr2}
+  \end{figure}
 \section{结论}
 
